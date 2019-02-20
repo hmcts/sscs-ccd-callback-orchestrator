@@ -95,8 +95,8 @@ project.tasks['sonarqube'].dependsOn test, integration
 
 sonarqube {
   properties {
-    property "sonar.projectName", "Reform :: spring-boot-template"
-    property "sonar.projectKey", "uk.gov.hmcts.reform:spring-boot-template"
+    property "sonar.projectName", "Reform :: sscs-ccd-callback-orchestrator"
+    property "sonar.projectKey", "uk.gov.hmcts.reform:sscs-ccd-callback-orchestrator"
     property "sonar.jacoco.reportPath", "${project.buildDir}/jacoco/test.exec"
     property "sonar.jacoco.itReportPath", "${project.buildDir}/jacoco/integration.exec"
 
@@ -171,10 +171,10 @@ test {
   failFast = true
 }
 
-mainClassName = 'uk.gov.hmcts.reform.demo.Application'
+mainClassName = 'uk.gov.hmcts.reform.sscs.Application'
 
 bootJar {
-  archiveName = 'spring-boot-template.jar'
+  archiveName = 'sscs-ccd-callback-orchestrator.jar'
 
   manifest {
     attributes('Implementation-Version': project.version.toString())

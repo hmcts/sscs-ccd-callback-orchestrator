@@ -1,14 +1,14 @@
 version: '2.1'
 
 services:
-  spring-boot-template:
+  sscs-ccd-callback-orchestrator:
     build:
       context: .
       args:
         - http_proxy
         - https_proxy
         - no_proxy
-    image: hmcts/spring-boot-template
+    image: hmcts/sscs-ccd-callback-orchestrator
     environment:
       # these environment variables are used by java-logging library
       - ROOT_APPENDER
