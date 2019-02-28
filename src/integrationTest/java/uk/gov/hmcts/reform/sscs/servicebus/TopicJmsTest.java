@@ -18,12 +18,13 @@ import javax.jms.Session;
 import static org.junit.Assert.assertEquals;
 
 public class TopicJmsTest {
-    //@ClassRule
+    @ClassRule
     public static EmbeddedInMemoryQpidBrokerRule qpidBrokerRule = new EmbeddedInMemoryQpidBrokerRule();
 
     private final MessagingConfig config = new MessagingConfig();
     private final ConnectionFactory connectionFactory = config.jmsConnectionFactory(
-        "clientId", "guest", "guest", "amqp://localhost");
+        "clientId", "guest", "guest",
+        "amqp://localhost:8899?amqp.saslMechanisms=PLAIN&transport.trustAll=true&transport.verifyHost=false");
     private final JmsTemplate jmsTemplate = config.jmsTemplate(connectionFactory);
     private final TopicPublisher publisher = new TopicPublisher(jmsTemplate, "amq.topic");
 

@@ -1,5 +1,5 @@
 {
-  "name": "Embedded Broker",
+  "name": "QPID Embedded Broker",
   "modelVersion": "7.0",
   "authenticationproviders": [
     {
@@ -17,8 +17,8 @@
   ],
   "ports": [
     {
-      "name": "AMQP_Port_5672",
-      "port": "5672",
+      "name": "AMQP",
+      "port": "8899",
       "bindingAddress": "127.0.0.1",
       "protocols": [ "AMQP_1_0" ],
       "needClientAuth" : false,
@@ -27,30 +27,18 @@
         {
           "name": "defaultAlias",
           "type": "defaultAlias"
-        }
-      ]
-    },
-    {
-      "name": "AMQP_Port_5671",
-      "port": "5671",
-      "bindingAddress": "127.0.0.1",
-      "protocols": [ "AMQP_1_0" ],
-      "needClientAuth" : false,
-      "authenticationProvider": "hardcoded",
-      "virtualhostaliases": [
-        {
-          "name": "defaultAlias",
-          "type": "defaultAlias"
-        }
-      ]
+        }, {
+          "name" : "hostnameAlias",
+          "type" : "hostnameAlias"
+        } ]
     }
   ],
   "virtualhostnodes": [
     {
-      "name": "myHostNode",
+      "name": "default",
       "type": "Memory",
       "defaultVirtualHostNode": "true",
-      "virtualHostInitialConfiguration": "{\"type\": \"Memory\"}"
+      "virtualHostInitialConfiguration" : "{\"type\": \"Memory\", \"NodeAutoCreationPolicy\" : [{\"patterns\":\".*\",\"createdOnPublish\":\"true\",\"createdOnConsume\":\"true\",\"nodeType\":\"queue\",\"attributes\":{}}] }"
     }
   ]
 }
