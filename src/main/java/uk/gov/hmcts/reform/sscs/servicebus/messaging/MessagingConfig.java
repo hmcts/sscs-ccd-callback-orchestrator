@@ -3,6 +3,7 @@ package uk.gov.hmcts.reform.sscs.servicebus.messaging;
 import org.apache.qpid.jms.JmsConnectionFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -27,14 +28,18 @@ public class MessagingConfig {
 
 
     @Bean
+    public String jmsUrlString(@Value("${amqp.host}") final String host) {
+        return String.format("amqps://%1s?amqp.idleTimeout=3600000", host);
+    }
+
+    @Bean
     public ConnectionFactory jmsConnectionFactory(@Value("${spring.application.name}") final String clientId,
                                                   @Value("${amqp.username}") final String username,
                                                   @Value("${amqp.password}") final String password,
-                                                  @Value("${amqp.host}") final String host
+                                                  @Autowired final String jmsUrlString
                                                   ) throws NoSuchAlgorithmException, KeyManagementException {
-        final String urlString = String.format("amqp://%1s?amqp.idleTimeout=3600000", host);
 
-        JmsConnectionFactory jmsConnectionFactory = new JmsConnectionFactory(urlString);
+        JmsConnectionFactory jmsConnectionFactory = new JmsConnectionFactory(jmsUrlString);
         jmsConnectionFactory.setUsername(username);
         jmsConnectionFactory.setPassword(password);
         jmsConnectionFactory.setClientID(clientId);

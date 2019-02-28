@@ -1,7 +1,7 @@
 package uk.gov.hmcts.reform.sscs.servicebus;
 
 import org.apache.qpid.jms.JmsTopic;
-//import org.junit.ClassRule;
+import org.junit.ClassRule;
 import org.junit.Test;
 import org.springframework.jms.core.JmsTemplate;
 import uk.gov.hmcts.reform.sscs.servicebus.messaging.MessagingConfig;
@@ -19,29 +19,30 @@ import static org.junit.Assert.assertEquals;
 
 public class TopicJmsTest {
     //@ClassRule
-    //public static EmbeddedInMemoryQpidBrokerRule qpidBrokerRule = new EmbeddedInMemoryQpidBrokerRule();
-
+    public static EmbeddedInMemoryQpidBrokerRule qpidBrokerRule = new EmbeddedInMemoryQpidBrokerRule();
 
     private final MessagingConfig config = new MessagingConfig();
     private final ConnectionFactory connectionFactory = config.jmsConnectionFactory(
-        "clientId", "guest", "guest", "localhost");
+        "clientId", "guest", "guest", "amqp://localhost");
     private final JmsTemplate jmsTemplate = config.jmsTemplate(connectionFactory);
-    private final TopicPublisher publisher = new TopicPublisher(jmsTemplate, "test.topic");
+    private final TopicPublisher publisher = new TopicPublisher(jmsTemplate, "amq.topic");
 
     public TopicJmsTest() throws KeyManagementException, NoSuchAlgorithmException {
     }
 
     @Test
-    public void testPing() throws JMSException {
+    public void testPingIsSent() throws JMSException {
         Connection connection = connectionFactory.createConnection();
         connection.start();
         Session session = connection.createSession(true, Session.SESSION_TRANSACTED);
-        MessageConsumer subscriber1 = session.createDurableSubscriber(new JmsTopic("test.topic"), "sub1");
+        MessageConsumer subscriber = session.createDurableSubscriber(new JmsTopic("amq.topic"), "sub1");
 
         publisher.sendPing();
 
-        Message message = subscriber1.receive(1000);
+        Message message = subscriber.receive(1000);
         session.commit();
+        connection.stop();
+        connection.close();
 
         assertEquals("ping", message.getBody(String.class));
 
