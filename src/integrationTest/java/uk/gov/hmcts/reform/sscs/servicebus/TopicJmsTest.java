@@ -29,23 +29,27 @@ public class TopicJmsTest {
     private final TopicPublisher publisher = new TopicPublisher(jmsTemplate, "amq.topic");
 
     public TopicJmsTest() throws KeyManagementException, NoSuchAlgorithmException {
+        System.setProperty("qpid.tests.mms.messagestore.persistence", "true");
     }
 
     @Test
     public void testPingIsSent() throws JMSException {
+
         Connection connection = connectionFactory.createConnection();
         connection.start();
         Session session = connection.createSession(true, Session.SESSION_TRANSACTED);
-        MessageConsumer subscriber = session.createDurableSubscriber(new JmsTopic("amq.topic"), "sub1");
 
         publisher.sendPing();
 
+        MessageConsumer subscriber = session.createDurableSubscriber(new JmsTopic("amq.topic"), "sub1");
         Message message = subscriber.receive(1000);
+
         session.commit();
-        connection.stop();
-        connection.close();
 
         assertEquals("ping", message.getBody(String.class));
+
+        connection.stop();
+        connection.close();
 
     }
 
