@@ -77,6 +77,7 @@ checkstyle {
 
 pmd {
   toolVersion = "6.9.0"
+  ignoreFailures = true
   sourceSets = [sourceSets.main, sourceSets.test, sourceSets.functionalTest, sourceSets.integrationTest, sourceSets.smokeTest]
   reportsDir = file("$project.buildDir/reports/pmd")
   ruleSetFiles = files("config/pmd/ruleset.xml")
@@ -145,7 +146,10 @@ dependencies {
   compile group: 'org.springframework.boot', name: 'spring-boot-starter-aop'
   compile group: 'org.springframework.boot', name: 'spring-boot-starter-json'
   compile group: 'org.springframework.boot', name: 'spring-boot-starter-json'
+  compile group: 'org.springframework', name: 'spring-jms'
   compile group: 'uk.gov.hmcts.reform', name: 'health-spring-boot-starter', version: '0.0.3'
+  compile group: 'org.apache.qpid', name: 'qpid-jms-client', version: '0.40.0'
+  compile group: 'org.springframework.retry', name: 'spring-retry', version: '1.2.4.RELEASE'
 
   compile group: 'io.springfox', name: 'springfox-swagger2', version: versions.springfoxSwagger
 
@@ -157,6 +161,12 @@ dependencies {
   testRuntimeOnly group: 'org.junit.jupiter', name: 'junit-jupiter-engine', version: versions.junit
 
   testCompile group: 'org.springframework.boot', name: 'spring-boot-starter-test'
+  testCompile group: 'org.mockito', name: 'mockito-core', version: '2.23.4'
+  testCompile 'pl.pragmatists:JUnitParams:1.1.1'
+  testCompile group: 'org.apache.qpid', name: 'qpid-broker-core', version: '7.1.0'
+  testCompile group: 'org.apache.qpid', name: 'qpid-broker-plugins-amqp-1-0-protocol', version: '7.1.0'
+  testCompile group: 'org.apache.qpid', name: 'qpid-broker-plugins-memory-store', version: '7.1.0'
+
 
   integrationTestCompile sourceSets.main.runtimeClasspath
   integrationTestCompile sourceSets.test.runtimeClasspath
@@ -166,9 +176,15 @@ dependencies {
   smokeTestCompile sourceSets.main.runtimeClasspath
 }
 
-test {
-  useJUnitPlatform()
-  failFast = true
+// this is required to force Java running on the Azure Windows Server OS into using
+// UTF-8 as the default character set instead of windows-1252 which causes issues
+applicationDefaultJvmArgs = ["-Dfile.encoding=UTF-8"]
+
+run {
+  def debug = System.getProperty("debug")
+  if (debug == 'true') {
+    jvmArgs = ['-agentlib:jdwp=transport=dt_socket,server=y,suspend=y,address=5005']
+  }
 }
 
 mainClassName = 'uk.gov.hmcts.reform.sscs.Application'
