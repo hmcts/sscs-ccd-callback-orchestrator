@@ -18,16 +18,17 @@ class EmbeddedInMemoryQpidBroker {
         this.systemLauncher = new SystemLauncher();
     }
 
+    @SuppressWarnings("PMD.SignatureDeclareThrowsException")
     void start() throws Exception {
         this.systemLauncher.startup(createSystemConfig());
     }
 
-    public void shutdown() {
+    void shutdown() {
         this.systemLauncher.shutdown();
     }
 
     private Map<String, Object> createSystemConfig() throws IllegalConfigurationException {
-        URL initialConfigUrl = EmbeddedInMemoryQpidBroker.class.getClassLoader()
+        URL initialConfigUrl = Thread.currentThread().getContextClassLoader()
             .getResource(DEFAULT_INITIAL_CONFIGURATION_LOCATION);
         if (initialConfigUrl == null) {
             throw new IllegalConfigurationException("Configuration location '"

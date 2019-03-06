@@ -12,11 +12,11 @@ public class TopicPublisherTest {
 
     private static final String DESTINATION = "Bermuda";
     private final JmsTemplate jmsTemplate = mock(JmsTemplate.class);
-    private TopicPublisher underTest = new TopicPublisher(jmsTemplate, DESTINATION);
+    private final TopicPublisher underTest = new TopicPublisher(jmsTemplate, DESTINATION);
 
     @Test
     public void sendPingCallsTheJmsTemplate() {
-        underTest.sendPing();
+        underTest.sendMessage("a message");
 
         verify(jmsTemplate).send(eq(DESTINATION), any());
     }

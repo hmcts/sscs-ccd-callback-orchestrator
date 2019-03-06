@@ -1,8 +1,7 @@
 package uk.gov.hmcts.reform.sscs.servicebus.messaging;
 
+import lombok.extern.slf4j.Slf4j;
 import org.apache.qpid.jms.JmsConnectionFactory;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
@@ -14,6 +13,7 @@ import org.springframework.jms.core.JmsTemplate;
 
 import java.security.KeyManagementException;
 import java.security.NoSuchAlgorithmException;
+import java.security.SecureRandom;
 import java.security.cert.X509Certificate;
 import javax.jms.ConnectionFactory;
 import javax.net.ssl.SSLContext;
@@ -22,10 +22,8 @@ import javax.net.ssl.X509TrustManager;
 
 
 @Configuration
+@Slf4j
 public class MessagingConfig {
-
-    private final Logger logger = LoggerFactory.getLogger(MessagingConfig.class);
-
 
     @Bean
     public String jmsUrlString(@Value("${amqp.host}") final String host) {
@@ -45,25 +43,32 @@ public class MessagingConfig {
         jmsConnectionFactory.setClientID(clientId);
         jmsConnectionFactory.setReceiveLocalOnly(true);
         SSLContext sc = SSLContext.getInstance("SSL");
-        TrustManager[] trustAllCerts = new TrustManager[]{
-            new X509TrustManager() {
-                public java.security.cert.X509Certificate[] getAcceptedIssuers() {
-                    return new X509Certificate[0];
-                }
-
-                public void checkClientTrusted(
-                    java.security.cert.X509Certificate[] certs, String authType) {
-                }
-
-                public void checkServerTrusted(
-                    java.security.cert.X509Certificate[] certs, String authType) {
-                }
-            }
-        };
-        sc.init(null, trustAllCerts, new java.security.SecureRandom());
+        TrustManager[] trustAllCerts = getTrustManagers();
+        sc.init(null, trustAllCerts, new SecureRandom());
         jmsConnectionFactory.setSslContext(sc);
 
         return new CachingConnectionFactory(jmsConnectionFactory);
+    }
+
+    private TrustManager[] getTrustManagers() {
+        return new TrustManager[]{
+            new X509TrustManager() {
+                @Override
+                public X509Certificate[] getAcceptedIssuers() {
+                    return new X509Certificate[0];
+                }
+
+                @Override
+                public void checkClientTrusted(
+                    X509Certificate[] certs, String authType) {
+                }
+
+                @Override
+                public void checkServerTrusted(
+                    X509Certificate[] certs, String authType) {
+                }
+            }
+        };
     }
 
     @Bean
@@ -75,7 +80,7 @@ public class MessagingConfig {
 
     @Bean
     public JmsListenerContainerFactory topicJmsListenerContainerFactory(ConnectionFactory connectionFactory) {
-        logger.info("Creating JMSListenerContainer bean for topics..");
+        log.info("Creating JMSListenerContainer bean for topics..");
         DefaultJmsListenerContainerFactory returnValue = new DefaultJmsListenerContainerFactory();
         returnValue.setConnectionFactory(connectionFactory);
         returnValue.setSubscriptionDurable(Boolean.TRUE);

@@ -38,7 +38,7 @@
       "name": "default",
       "type": "Memory",
       "defaultVirtualHostNode": "true",
-      "virtualHostInitialConfiguration" : "{\"type\": \"Memory\", \"NodeAutoCreationPolicy\" : [{\"patterns\":\".*\",\"createdOnPublish\":\"true\",\"createdOnConsume\":\"true\",\"nodeType\":\"queue\",\"attributes\":{}}] }"
+      "virtualHostInitialConfiguration" : "{\"type\": \"Memory\", \"NodeAutoCreationPolicy\" : [{\"patterns\":\".*\",\"createdOnPublish\":\"true\",\"createdOnConsume\":\"true\",\"nodeType\":\"queue\",\"attributes\":{ \"durable\":\"true\"}}] }"
     }
   ]
 }

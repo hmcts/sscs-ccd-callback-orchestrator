@@ -1,16 +1,14 @@
 package uk.gov.hmcts.reform.sscs.servicebus.messaging;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.util.ErrorHandler;
 
+@Slf4j
 public class JmsErrorHandler implements ErrorHandler {
 
-    private static Logger log = LoggerFactory.getLogger(JmsErrorHandler.class);
-
     @Override
-    public void handleError(Throwable t) {
+    public void handleError(Throwable throwable) {
         log.warn("spring jms custom error handling example");
-        log.error(t.getCause().getMessage());
+        log.error(throwable.getCause().getMessage());
     }
 }
