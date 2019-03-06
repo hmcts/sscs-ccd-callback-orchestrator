@@ -28,8 +28,8 @@ public class TopicJmsTest {
     private final MessagingConfig config = new MessagingConfig();
     private final ConnectionFactory connectionFactory = config.jmsConnectionFactory(
         "clientId", "guest", "guest",
-        "amqp://localhost?amqp.idleTimeout=120000"
-            //+ "&amqp.saslMechanisms=PLAIN&transport.trustAll=true"
+        "amqp://localhost:8899?amqp.idleTimeout=120000"
+            + "&amqp.saslMechanisms=PLAIN&transport.trustAll=true"
             + "&transport.verifyHost=false");
     private final JmsTemplate jmsTemplate = config.jmsTemplate(connectionFactory);
 
