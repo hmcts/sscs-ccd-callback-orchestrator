@@ -3,6 +3,8 @@ package uk.gov.hmcts.reform.sscs.servicebus;
 import org.junit.Test;
 import org.springframework.jms.core.JmsTemplate;
 
+import java.net.NoRouteToHostException;
+
 import static org.mockito.Mockito.any;
 import static org.mockito.Mockito.eq;
 import static org.mockito.Mockito.mock;
@@ -15,9 +17,15 @@ public class TopicPublisherTest {
     private final TopicPublisher underTest = new TopicPublisher(jmsTemplate, DESTINATION);
 
     @Test
-    public void sendPingCallsTheJmsTemplate() {
+    public void sendMessageCallsTheJmsTemplate() {
         underTest.sendMessage("a message");
 
         verify(jmsTemplate).send(eq(DESTINATION), any());
+    }
+
+    @Test(expected = NoRouteToHostException.class)
+    public void recoverMessageThrowsThePassedException() throws Throwable {
+        Exception exception = new NoRouteToHostException("");
+        underTest.recoverMessage(exception);
     }
 }

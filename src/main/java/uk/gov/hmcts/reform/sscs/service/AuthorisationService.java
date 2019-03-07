@@ -1,17 +1,16 @@
 package uk.gov.hmcts.reform.sscs.service;
 
 import feign.FeignException;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import uk.gov.hmcts.reform.authorisation.ServiceAuthorisationApi;
 import uk.gov.hmcts.reform.sscs.exception.AuthorisationException;
 import uk.gov.hmcts.reform.sscs.exception.ClientAuthorisationException;
 
-import static org.slf4j.LoggerFactory.getLogger;
-
 @Service
+@Slf4j
 public class AuthorisationService {
 
-    private static final org.slf4j.Logger LOG = getLogger(AuthorisationService.class);
     public static final String SERVICE_AUTHORISATION_HEADER = "ServiceAuthorization";
 
     private final ServiceAuthorisationApi serviceAuthorisationApi;
@@ -22,15 +21,15 @@ public class AuthorisationService {
 
     public Boolean authorise(String serviceAuthHeader) {
         try {
-            LOG.info("About to authorise Notification request");
+            log.info("About to authorise request");
             serviceAuthorisationApi.getServiceName(serviceAuthHeader);
-            LOG.info("Notification request authorised");
+            log.info("Request authorised");
             return true;
         } catch (FeignException exc) {
             RuntimeException authExc = exc.status() >= 400 && exc.status() <= 499
                 ? new ClientAuthorisationException(exc) : new AuthorisationException(exc);
 
-            LOG.error("Authorisation failed for Notification request with status " + exc.status(), authExc);
+            log.error("Authorisation failed for the request with status " + exc.status(), authExc);
 
             throw authExc;
         }
