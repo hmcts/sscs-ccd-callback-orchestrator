@@ -11,11 +11,13 @@ spring:
     name: ccd callback orchestrator
 
 amqp:
-  host: localhost
-  username: guest
-  password: guest
-  topic: test.topic
-  subscription: test.queue
+  host: ${AMQP_HOST:localhost}
+  username: ${AMQP_USERNAME:guest}
+  password: ${AMQP_PASSWORD:guest}
+  topic: ${TOPIC_NAME:test.topic}
+  subscription: ${SUBSCRIPTION_NAME:test.queue}
+  # DO NOT SET THIS 'true' IN PRODUCTION!
+  trustAllCerts: ${TRUST_ALL_CERTS:true}
 
 idam:
   url: ${IDAM_URL:http://localhost:4501}

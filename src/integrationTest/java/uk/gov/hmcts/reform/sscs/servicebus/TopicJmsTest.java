@@ -30,7 +30,9 @@ public class TopicJmsTest {
         "clientId", "guest", "guest",
         "amqp://localhost:8899?amqp.idleTimeout=120000"
             + "&amqp.saslMechanisms=PLAIN&transport.trustAll=true"
-            + "&transport.verifyHost=false");
+            + "&transport.verifyHost=false",
+        config.jmsSslContext(true)
+        );
     private final JmsTemplate jmsTemplate = config.jmsTemplate(connectionFactory);
 
 
