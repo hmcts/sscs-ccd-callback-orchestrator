@@ -34,20 +34,40 @@ public class MessagingConfig {
     public ConnectionFactory jmsConnectionFactory(@Value("${spring.application.name}") final String clientId,
                                                   @Value("${amqp.username}") final String username,
                                                   @Value("${amqp.password}") final String password,
-                                                  @Autowired final String jmsUrlString
-                                                  ) throws NoSuchAlgorithmException, KeyManagementException {
-
+                                                  @Autowired final String jmsUrlString,
+                                                  @Autowired final SSLContext jmsSslContext) {
         JmsConnectionFactory jmsConnectionFactory = new JmsConnectionFactory(jmsUrlString);
         jmsConnectionFactory.setUsername(username);
         jmsConnectionFactory.setPassword(password);
         jmsConnectionFactory.setClientID(clientId);
         jmsConnectionFactory.setReceiveLocalOnly(true);
-        SSLContext sc = SSLContext.getInstance("SSL");
-        TrustManager[] trustAllCerts = getTrustManagers();
-        sc.init(null, trustAllCerts, new SecureRandom());
-        jmsConnectionFactory.setSslContext(sc);
+        if (jmsSslContext != null) {
+            jmsConnectionFactory.setSslContext(jmsSslContext);
+        }
 
         return new CachingConnectionFactory(jmsConnectionFactory);
+    }
+
+    /*
+     * DO NOT USE THIS IN PRODUCTION!
+     * This was only used for testing unverified ssl certs locally!
+     */
+    @Bean
+    @Deprecated
+    public SSLContext jmsSslContext(@Value("${amqp.trustAllCerts}") final boolean trustAllCerts)
+        throws NoSuchAlgorithmException, KeyManagementException {
+
+        if (trustAllCerts) {
+            // https://stackoverflow.com/a/2893932
+            // DO NOT USE THIS IN PRODUCTION!
+            TrustManager[] trustCerts = getTrustManagers();
+
+            SSLContext sc = SSLContext.getInstance("SSL");
+            sc.init(null, trustCerts, new SecureRandom());
+
+            return sc;
+        }
+        return null;
     }
 
     private TrustManager[] getTrustManagers() {
