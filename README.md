@@ -1,4 +1,4 @@
-# sscs-ccd-callback-orchestrator
+cd bin# sscs-ccd-callback-orchestrator
 
 [![Build Status](https://travis-ci.org/hmcts/sscs-ccd-callback-orchestrator.svg?branch=master)](https://travis-ci.org/hmcts/sscs-ccd-callback-orchestrator)
 
