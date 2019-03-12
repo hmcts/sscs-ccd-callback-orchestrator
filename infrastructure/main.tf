@@ -59,8 +59,8 @@ data "azurerm_key_vault_secret" "amqp_username" {
   vault_uri = "${data.azurerm_key_vault.sscs_key_vault.vault_uri}"
 }
 
-data "azurerm_key_vault_secret" "ampq_password" {
-  name      = "sscs-ampq-password"
+data "azurerm_key_vault_secret" "sscs_asb_primary_send_and_listen_shared_access_key" {
+  name      = "sscs-asb-primary-send-and-listen-shared-access-key"
   vault_uri = "${data.azurerm_key_vault.sscs_key_vault.vault_uri}"
 }
 
@@ -97,11 +97,13 @@ module "sscs-ccd-callback-orchestrator" {
     IDAM_OAUTH2_CLIENT_SECRET = "${data.azurerm_key_vault_secret.idam_oauth2_client_secret.value}"
     IDAM_OAUTH2_REDIRECT_URL  = "${var.idam_redirect_url}"
 
-    AMQP_HOST         = "${data.azurerm_key_vault_secret.amqp_host.value}"
-    AMQP_USERNAME     = "${data.azurerm_key_vault_secret.amqp_username.value}"
-    AMQP_PASSWORD     = "${data.azurerm_key_vault_secret.ampq_password.value}"
-    TOPIC_NAME        = "${data.azurerm_key_vault_secret.ampq_topic.value}"
+    AMQP_HOST         = "sscs-servicebus-${var.env}.servicebus.windows.net"
+    // In Azure Service bus, rulename/key is used as username/password
+    AMQP_USERNAME     = "SendAndListenSharedAccessKey"
+    AMQP_PASSWORD     = "${data.azurerm_key_vault_secret.sscs_asb_primary_send_and_listen_shared_access_key.value}"
+    TOPIC_NAME        = "evidenceshare"
     SUBSCRIPTION_NAME = "${data.azurerm_key_vault_secret.idam_oauth2_client_secret.value}"
+
     TRUST_ALL_CERTS   = "${var.trust_all_certs}"
   }
 }
