@@ -49,23 +49,8 @@ data "azurerm_key_vault_secret" "idam_oauth2_client_secret" {
   vault_uri = "${data.azurerm_key_vault.sscs_key_vault.vault_uri}"
 }
 
-data "azurerm_key_vault_secret" "amqp_host" {
-  name      = "sscs-ampq-host"
-  vault_uri = "${data.azurerm_key_vault.sscs_key_vault.vault_uri}"
-}
-
-data "azurerm_key_vault_secret" "amqp_username" {
-  name      = "sscs-ampq-username"
-  vault_uri = "${data.azurerm_key_vault.sscs_key_vault.vault_uri}"
-}
-
 data "azurerm_key_vault_secret" "sscs_asb_primary_send_and_listen_shared_access_key" {
   name      = "sscs-asb-primary-send-and-listen-shared-access-key"
-  vault_uri = "${data.azurerm_key_vault.sscs_key_vault.vault_uri}"
-}
-
-data "azurerm_key_vault_secret" "ampq_topic" {
-  name      = "sscs-ampq-notifications-topic"
   vault_uri = "${data.azurerm_key_vault.sscs_key_vault.vault_uri}"
 }
 
