@@ -3,6 +3,11 @@ provider "azurerm" {}
 locals {
   ase_name       = "${data.terraform_remote_state.core_apps_compute.ase_name[0]}"
   azureVaultName = "sscs-${var.env}"
+  s2sCnpUrl     = "http://rpe-service-auth-provider-${var.env}.service.${local.ase_name}.internal"
+
+  shared_app_service_plan     = "${var.product}-${var.env}"
+  non_shared_app_service_plan = "${var.product}-${var.component}-${var.env}"
+  app_service_plan            = "${(var.env == "saat" || var.env == "sandbox") ?  local.shared_app_service_plan : local.non_shared_app_service_plan}"
 }
 
 resource "azurerm_resource_group" "rg" {
@@ -24,6 +29,46 @@ data "azurerm_key_vault_secret" "idam_api" {
   vault_uri = "${data.azurerm_key_vault.sscs_key_vault.vault_uri}"
 }
 
+data "azurerm_key_vault_secret" "sscs_s2s_secret" {
+  name      = "sscs-s2s-secret"
+  vault_uri = "${data.azurerm_key_vault.sscs_key_vault.vault_uri}"
+}
+
+data "azurerm_key_vault_secret" "idam_sscs_systemupdate_user" {
+  name      = "idam-sscs-systemupdate-user"
+  vault_uri = "${data.azurerm_key_vault.sscs_key_vault.vault_uri}"
+}
+
+data "azurerm_key_vault_secret" "idam_sscs_systemupdate_password" {
+  name      = "idam-sscs-systemupdate-password"
+  vault_uri = "${data.azurerm_key_vault.sscs_key_vault.vault_uri}"
+}
+
+data "azurerm_key_vault_secret" "idam_oauth2_client_secret" {
+  name      = "idam-sscs-oauth2-client-secret"
+  vault_uri = "${data.azurerm_key_vault.sscs_key_vault.vault_uri}"
+}
+
+data "azurerm_key_vault_secret" "amqp_host" {
+  name      = "sscs-ampq-host"
+  vault_uri = "${data.azurerm_key_vault.sscs_key_vault.vault_uri}"
+}
+
+data "azurerm_key_vault_secret" "amqp_username" {
+  name      = "sscs-ampq-username"
+  vault_uri = "${data.azurerm_key_vault.sscs_key_vault.vault_uri}"
+}
+
+data "azurerm_key_vault_secret" "ampq_password" {
+  name      = "sscs-ampq-password"
+  vault_uri = "${data.azurerm_key_vault.sscs_key_vault.vault_uri}"
+}
+
+data "azurerm_key_vault_secret" "ampq_topic" {
+  name      = "sscs-ampq-notifications-topic"
+  vault_uri = "${data.azurerm_key_vault.sscs_key_vault.vault_uri}"
+}
+
 module "sscs-ccd-callback-orchestrator" {
   source              = "git@github.com:hmcts/moj-module-webapp?ref=master"
   product             = "${var.product}-${var.component}"
@@ -36,10 +81,27 @@ module "sscs-ccd-callback-orchestrator" {
   common_tags         = "${var.common_tags}"
 
   app_settings = {
-    LOGBACK_REQUIRE_ALERT_LEVEL = "false"
-    LOGBACK_REQUIRE_ERROR_CODE  = "false"
+    LOGBACK_REQUIRE_ALERT_LEVEL = "${var.logback_require_alert_level}"
+    LOGBACK_REQUIRE_ERROR_CODE  = "${var.logback_require_error_code}"
 
     IDAM_API_URL = "${data.azurerm_key_vault_secret.idam_api.value}"
 
+    IDAM.S2S-AUTH.TOTP_SECRET  = "${data.azurerm_key_vault_secret.sscs_s2s_secret.value}"
+    IDAM.S2S-AUTH              = "${local.s2sCnpUrl}"
+    IDAM.S2S-AUTH.MICROSERVICE = "${var.ccd_idam_s2s_auth_microservice}"
+
+    IDAM_SSCS_SYSTEMUPDATE_USER     = "${data.azurerm_key_vault_secret.idam_sscs_systemupdate_user.value}"
+    IDAM_SSCS_SYSTEMUPDATE_PASSWORD = "${data.azurerm_key_vault_secret.idam_sscs_systemupdate_password.value}"
+
+    IDAM_OAUTH2_CLIENT_ID     = "${var.idam_oauth2_client_id}"
+    IDAM_OAUTH2_CLIENT_SECRET = "${data.azurerm_key_vault_secret.idam_oauth2_client_secret.value}"
+    IDAM_OAUTH2_REDIRECT_URL  = "${var.idam_redirect_url}"
+
+    AMQP_HOST         = "${data.azurerm_key_vault_secret.amqp_host.value}"
+    AMQP_USERNAME     = "${data.azurerm_key_vault_secret.amqp_username.value}"
+    AMQP_PASSWORD     = "${data.azurerm_key_vault_secret.ampq_password.value}"
+    TOPIC_NAME        = "${data.azurerm_key_vault_secret.ampq_topic.value}"
+    SUBSCRIPTION_NAME = "${data.azurerm_key_vault_secret.idam_oauth2_client_secret.value}"
+    TRUST_ALL_CERTS   = "${var.trust_all_certs}"
   }
 }
