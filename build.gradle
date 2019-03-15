@@ -71,7 +71,7 @@ task smoke(type: Test) {
 
 checkstyle {
   maxWarnings = 0
-  toolVersion = '8.14'
+  toolVersion = '8.18'
   // need to set configDir to rootDir otherwise submodule will use submodule/config/checkstyle
   configDir = new File(rootDir, 'config/checkstyle')
 }
@@ -105,11 +105,16 @@ functional.shouldRunAfter(test)
 
 sonarqube {
   properties {
-    property "sonar.projectName", "Reform :: sscs-ccd-callback-orchestrator"
+    property "sonar.projectName", "SSCS - CCD Callback Orchestrator"
     property "sonar.projectKey", "uk.gov.hmcts.reform:sscs-ccd-callback-orchestrator"
     property "sonar.jacoco.reportPath", "${project.buildDir}/jacoco/test.exec"
     property "sonar.jacoco.itReportPath", "${project.buildDir}/jacoco/integration.exec"
-
+    property "sonar.exclusions", "src/main/java/uk/gov/hmcts/reform/sscs/domain/**," +
+      "src/main/java/uk/gov/hmcts/reform/sscs/Application.java," +
+      "src/main/java/uk/gov/hmcts/reform/sscs/domain/**," +
+      "src/main/java/uk/gov/hmcts/reform/sscs/config/**,"
+    property "sonar.pitest.mode", "reuseReport"
+    property "sonar.pitest.reportsDirectory", "build/reports/pitest"
   }
 }
 
@@ -180,6 +185,7 @@ dependencies {
   testCompile group: 'org.junit.jupiter', name: 'junit-jupiter-params', version: versions.junit
   testRuntimeOnly group: 'org.junit.jupiter', name: 'junit-jupiter-engine', version: versions.junit
 
+  testCompile group: 'uk.gov.hmcts.reform', name: 'sscs-common', version: '0.0.144'
   testCompile group: 'org.springframework.boot', name: 'spring-boot-starter-test'
   testCompile group: 'org.mockito', name: 'mockito-core', version: '2.23.4'
   testCompile 'pl.pragmatists:JUnitParams:1.1.1'
@@ -192,6 +198,7 @@ dependencies {
   integrationTestCompile sourceSets.test.runtimeClasspath
 
   functionalTestCompile sourceSets.main.runtimeClasspath
+  functionalTestCompile sourceSets.test.runtimeClasspath
 
   smokeTestCompile sourceSets.main.runtimeClasspath
 }
