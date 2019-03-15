@@ -69,7 +69,7 @@ module "sscs-ccd-callback-orchestrator" {
     LOGBACK_REQUIRE_ALERT_LEVEL = "${var.logback_require_alert_level}"
     LOGBACK_REQUIRE_ERROR_CODE  = "${var.logback_require_error_code}"
 
-    IDAM_API_URL = "${data.azurerm_key_vault_secret.idam_api.value}"
+    IDAM_URL = "${data.azurerm_key_vault_secret.idam_api.value}"
 
     IDAM.S2S-AUTH.TOTP_SECRET  = "${data.azurerm_key_vault_secret.sscs_s2s_secret.value}"
     IDAM.S2S-AUTH              = "${local.s2sCnpUrl}"
@@ -87,7 +87,7 @@ module "sscs-ccd-callback-orchestrator" {
     AMQP_USERNAME     = "SendAndListenSharedAccessKey"
     AMQP_PASSWORD     = "${data.azurerm_key_vault_secret.sscs_asb_primary_send_and_listen_shared_access_key.value}"
     TOPIC_NAME        = "evidenceshare-topic"
-    SUBSCRIPTION_NAME = "${data.azurerm_key_vault_secret.idam_oauth2_client_secret.value}"
+    SUBSCRIPTION_NAME = "evidenceshare-subscription"
 
     TRUST_ALL_CERTS   = "${var.trust_all_certs}"
   }
