@@ -86,7 +86,7 @@ module "sscs-ccd-callback-orchestrator" {
     // In Azure Service bus, rulename/key is used as username/password
     AMQP_USERNAME     = "SendAndListenSharedAccessKey"
     AMQP_PASSWORD     = "${data.azurerm_key_vault_secret.sscs_asb_primary_send_and_listen_shared_access_key.value}"
-    TOPIC_NAME        = "evidenceshare"
+    TOPIC_NAME        = "evidenceshare-topic"
     SUBSCRIPTION_NAME = "${data.azurerm_key_vault_secret.idam_oauth2_client_secret.value}"
 
     TRUST_ALL_CERTS   = "${var.trust_all_certs}"
