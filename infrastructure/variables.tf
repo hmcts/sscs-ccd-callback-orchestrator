@@ -26,3 +26,27 @@ variable "capacity" {
 variable "common_tags" {
   type = "map"
 }
+
+variable "ccd_idam_s2s_auth_microservice" {
+  default = "sscs"
+}
+
+variable "idam_oauth2_client_id" {
+  default = "sscs"
+}
+
+variable "idam_redirect_url" {
+  default = "https://sscs-ccd-callback-orchestrator-sandbox.service.core-compute-sandbox.internal"
+}
+
+variable "trust_all_certs" {
+  default = false
+}
+
+variable "logback_require_alert_level" {
+  default = false
+}
+
+variable "logback_require_error_code" {
+  default = false
+}
