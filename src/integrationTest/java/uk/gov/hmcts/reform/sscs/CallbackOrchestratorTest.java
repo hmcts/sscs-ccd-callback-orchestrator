@@ -11,7 +11,6 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.junit4.rules.SpringClassRule;
 import org.springframework.test.context.junit4.rules.SpringMethodRule;
 import uk.gov.hmcts.reform.authorisation.ServiceAuthorisationHealthApi;
-import uk.gov.hmcts.reform.sscs.service.AuthorisationService;
 import uk.gov.hmcts.reform.sscs.servicebus.TopicPublisher;
 
 import static org.junit.Assert.assertNotNull;
@@ -27,9 +26,6 @@ public class CallbackOrchestratorTest {
     public final SpringMethodRule springMethodRule = new SpringMethodRule();
     //end of rules needed for junitParamsRunner
 
-    @MockBean
-    @SuppressWarnings({"PMD.UnusedPrivateField"})
-    private AuthorisationService authorisationService;
 
     @MockBean
     @SuppressWarnings({"PMD.UnusedPrivateField"})
