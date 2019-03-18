@@ -20,7 +20,7 @@ amqp:
   trustAllCerts: ${TRUST_ALL_CERTS:true}
 
 idam:
-  url: ${IDAM_URL:http://localhost:4501}
+  url: ${IDAM_API_URL:http://localhost:4501}
   s2s-auth:
     totp_secret: ${IDAM.S2S-AUTH.TOTP_SECRET:AAAAAAAAAAAAAAAC}
     microservice: ${IDAM.S2S-AUTH.MICROSERVICE:sscs}

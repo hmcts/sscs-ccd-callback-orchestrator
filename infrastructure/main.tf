@@ -69,7 +69,7 @@ module "sscs-ccd-callback-orchestrator" {
     LOGBACK_REQUIRE_ALERT_LEVEL = "${var.logback_require_alert_level}"
     LOGBACK_REQUIRE_ERROR_CODE  = "${var.logback_require_error_code}"
 
-    IDAM_URL = "${data.azurerm_key_vault_secret.idam_api.value}"
+    IDAM_API_URL = "${data.azurerm_key_vault_secret.idam_api.value}"
 
     IDAM.S2S-AUTH.TOTP_SECRET  = "${data.azurerm_key_vault_secret.sscs_s2s_secret.value}"
     IDAM.S2S-AUTH              = "${local.s2sCnpUrl}"
