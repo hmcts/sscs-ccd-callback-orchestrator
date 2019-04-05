@@ -11,6 +11,7 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
@@ -62,6 +63,6 @@ public class CcdCallbackOrchestratorControllerTest {
         HttpEntity<String> request = new HttpEntity<String>("{'json': true}", headers);
         ResponseEntity<String> response = restTemplate.exchange("/send", HttpMethod.POST, request, String.class);
 
-        assertEquals(201, response.getStatusCodeValue());
+        assertEquals(HttpStatus.OK.value(), response.getStatusCodeValue());
     }
 }
