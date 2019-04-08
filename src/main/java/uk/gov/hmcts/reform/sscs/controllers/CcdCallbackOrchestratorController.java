@@ -31,6 +31,6 @@ public class CcdCallbackOrchestratorController {
         @RequestBody String body) {
         authorisationService.authorise(serviceAuthHeader);
         topicPublisher.sendMessage(body);
-        return new ResponseEntity(HttpStatus.CREATED);
+        return new ResponseEntity(HttpStatus.OK);
     }
 }
