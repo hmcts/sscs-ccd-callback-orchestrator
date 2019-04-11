@@ -187,7 +187,7 @@ dependencies {
 
   testCompile group: 'uk.gov.hmcts.reform', name: 'sscs-common', version: '0.0.144'
   testCompile group: 'org.springframework.boot', name: 'spring-boot-starter-test'
-  testCompile group: 'org.mockito', name: 'mockito-core', version: '2.23.4'
+  testCompile group: 'org.mockito', name: 'mockito-core', version: '2.27.0'
   testCompile 'pl.pragmatists:JUnitParams:1.1.1'
   testCompile group: 'org.apache.qpid', name: 'qpid-broker-core', version: '7.1.0'
   testCompile group: 'org.apache.qpid', name: 'qpid-broker-plugins-amqp-1-0-protocol', version: '7.1.0'
