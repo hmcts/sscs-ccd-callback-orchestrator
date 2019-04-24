@@ -17,7 +17,7 @@ spec:
         - image: ${IMAGE_NAME}
           name: ${SERVICE_NAME}
           ports:
-            - containerPort: 8080
+            - containerPort: 8070
           env:
             - name: IDAM_API_URL
               value: ${IDAM_API_URL}
