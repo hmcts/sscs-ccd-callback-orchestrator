@@ -22,7 +22,7 @@ amqp:
 idam:
   url: ${IDAM_API_URL:http://localhost:4501}
   s2s-auth:
-    totp_secret: ${IDAM.S2S-AUTH.TOTP_SECRET:AAAAAAAAAAAAAAAC}
+    totp_secret: ${IDAM_S2S_AUTH_TOTP_SECRET:AAAAAAAAAAAAAAAC}
     microservice: ${IDAM_S2S_AUTH_MICROSERVICE:sscs}
     url: ${IDAM_S2S_AUTH:http://localhost:4502}
   oauth2:
