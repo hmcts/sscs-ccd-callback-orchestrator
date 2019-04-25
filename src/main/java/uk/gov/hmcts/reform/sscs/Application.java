@@ -6,14 +6,10 @@ import org.springframework.cloud.client.circuitbreaker.EnableCircuitBreaker;
 import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.retry.annotation.EnableRetry;
-import uk.gov.hmcts.reform.authorisation.ServiceAuthorisationApi;
 
 @SpringBootApplication
 @EnableCircuitBreaker
-@EnableFeignClients(basePackages =
-    {
-        "uk.gov.hmcts.reform.authorisation"
-    }, basePackageClasses = ServiceAuthorisationApi.class)
+@EnableFeignClients
 @EnableRetry
 @ComponentScan(
     basePackages = "uk.gov.hmcts.reform.sscs",
