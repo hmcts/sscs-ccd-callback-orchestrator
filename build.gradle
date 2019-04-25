@@ -166,6 +166,7 @@ dependencies {
   compile group: 'org.springframework.boot', name: 'spring-boot-starter-aop'
   compile group: 'org.springframework.boot', name: 'spring-boot-starter-json'
   compile group: 'org.springframework', name: 'spring-jms'
+
   compile group: 'org.springframework.retry', name: 'spring-retry', version: '1.2.4.RELEASE'
   compile group: 'org.springframework.cloud', name: 'spring-cloud-starter-netflix-hystrix', version: '2.1.1.RELEASE'
 
