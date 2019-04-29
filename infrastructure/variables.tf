@@ -50,3 +50,8 @@ variable "logback_require_alert_level" {
 variable "logback_require_error_code" {
   default = false
 }
+
+variable "appinsights_instrumentation_key" {
+  description = "Instrumentation key of the App Insights instance this webapp should use. Module will create own App Insights resource if this is not provided"
+  default     = ""
+}
