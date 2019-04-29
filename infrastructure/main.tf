@@ -66,6 +66,8 @@ module "sscs-ccd-callback-orchestrator" {
   capacity            = "${var.capacity}"
   common_tags         = "${var.common_tags}"
 
+  appinsights_instrumentation_key = "${var.appinsights_instrumentation_key}"
+
   app_settings = {
     LOGBACK_REQUIRE_ALERT_LEVEL = "${var.logback_require_alert_level}"
     LOGBACK_REQUIRE_ERROR_CODE  = "${var.logback_require_error_code}"
