@@ -8,7 +8,7 @@ management:
 
 spring:
   application:
-    name: ccd callback orchestrator
+    name: Ccd Callback Orchestrator
 
 amqp:
   host: ${AMQP_HOST:localhost}
