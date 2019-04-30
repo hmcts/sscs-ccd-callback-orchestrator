@@ -26,11 +26,11 @@ public class CcdCallbackOrchestratorController {
     }
 
     @RequestMapping(value = "/send", produces = APPLICATION_JSON_VALUE, method = RequestMethod.POST)
-    public ResponseEntity send(
+    public ResponseEntity<String> send(
         @RequestHeader(AuthorisationService.SERVICE_AUTHORISATION_HEADER) String serviceAuthHeader,
         @RequestBody String body) {
         authorisationService.authorise(serviceAuthHeader);
         topicPublisher.sendMessage(body);
-        return new ResponseEntity(HttpStatus.OK);
+        return new ResponseEntity<>("{}", HttpStatus.OK);
     }
 }
