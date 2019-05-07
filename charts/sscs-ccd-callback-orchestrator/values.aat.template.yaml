@@ -1,0 +1,8 @@
+java:
+  environment:
+    IDAM_OAUTH2_REDIRECT_URL: "https://evidence-sharing-preprod.sscs.reform.hmcts.net"
+    TRUST_ALL_CERTS: "false"
+    SUBSCRIPTION_NAME: "sscs-evidenceshare-subscription-aat"
+    TOPIC_NAME: "sscs-evidenceshare-topic-aat"
+    AMQP_HOST: "sscs-servicebus-aat.servicebus.windows.net"
+    AMQP_USERNAME: "SendAndListenSharedAccessKey"
