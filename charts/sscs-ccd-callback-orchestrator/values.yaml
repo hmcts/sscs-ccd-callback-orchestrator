@@ -1,0 +1,23 @@
+java:
+  applicationPort: 8070
+  keyVaults:
+    sscs:
+      resourceGroup: sscs
+      secrets:
+        - idam-api
+        - idam-oauth-user
+        - idam-redirect
+        - idam-sscs-systemupdate-user
+        - idam-sscs-systemupdate-password
+        - idam-sscs-oauth2-client-secret
+        - idam-s2s-api
+        - sscs-s2s-secret
+        - s2s-micro
+  environment:
+    REFORM_TEAM: sscs
+    REFORM_SERVICE_NAME: sscs-ccd-callback-orchestrator
+    REFORM_SERVICE_TYPE: java
+    REFORM_ENVIRONMENT: preview
+    ROOT_LOGGING_LEVEL: INFO
+    LOG_OUTPUT: single
+    IDAM_OAUTH2_CLIENT_ID: "sscs"
