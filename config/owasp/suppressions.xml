@@ -17,7 +17,7 @@
   </suppress>
   <suppress>
     <notes><![CDATA[
-   file name: spring-security-crypto-5.1.4.RELEASE.jar
+   file name: spring-security-crypto-5.1.5.RELEASE.jar
    ]]></notes>
     <gav regex="true">^org\.springframework\.security:spring-security-crypto:5.1.5.RELEASE$</gav>
     <cve>CVE-2018-1258</cve>
