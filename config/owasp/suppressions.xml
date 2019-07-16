@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<suppressions xmlns="https://jeremylong.github.io/DependencyCheck/dependency-suppression.1.1.xsd">
+<suppressions xmlns="https://jeremylong.github.io/DependencyCheck/dependency-suppression.1.3.xsd">
   <suppress>
     <notes><![CDATA[ pulled by springfox and hystrix ]]></notes>
     <gav regex="true">^com\.google\.guava:guava:.*$</gav>
@@ -29,5 +29,33 @@
     <gav regex="true">^io\.netty:netty-tcnative-boringssl-static:2\.0\.17\.Final$</gav>
     <cve>CVE-2014-3488</cve>
     <cve>CVE-2015-2156</cve>
+  </suppress>
+  <suppress>
+    <notes><![CDATA[
+   file name: qpid-jms-client-0.44.0.jar
+   ]]></notes>
+    <packageUrl regex="true">^pkg:maven/org\.apache\.qpid/qpid\-jms\-client@.*$</packageUrl>
+    <cpe>cpe:/a:apache:qpid_java</cpe>
+  </suppress>
+  <suppress>
+    <notes><![CDATA[
+   file name: jackson-databind-2.9.9.jar
+   ]]></notes>
+    <packageUrl regex="true">^pkg:maven/com\.fasterxml\.jackson\.core/jackson\-databind@.*$</packageUrl>
+    <cpe>cpe:/a:fasterxml:jackson-databind</cpe>
+  </suppress>
+  <suppress>
+    <notes><![CDATA[
+   file name: guava-20.0.jar
+   ]]></notes>
+    <packageUrl regex="true">^pkg:maven/com\.google\.guava/guava@.*$</packageUrl>
+    <vulnerabilityName>CVE-2018-10237</vulnerabilityName>
+  </suppress>
+  <suppress>
+    <notes><![CDATA[
+   file name: jackson-databind-2.9.9.jar
+   ]]></notes>
+    <sha1>d6eb9817d9c7289a91f043ac5ee02a6b3cc86238</sha1>
+    <vulnerabilityName>CVE-2019-12814</vulnerabilityName>
   </suppress>
 </suppressions>
