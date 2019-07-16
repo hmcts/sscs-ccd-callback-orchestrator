@@ -30,4 +30,26 @@
     <cve>CVE-2014-3488</cve>
     <cve>CVE-2015-2156</cve>
   </suppress>
+  <suppress>
+    <notes><![CDATA[
+   file name: qpid-jms-client-0.44.0.jar
+   ]]></notes>
+    <packageUrl regex="true">^pkg:maven/org\.apache\.qpid/qpid-jms-client@.*$</packageUrl>
+    <cve>CVE-2016-3094</cve>
+    <cve>CVE-2016-4432</cve>
+  </suppress>
+  <suppress>
+    <notes><![CDATA[
+   file name: jackson-databind-2.9.9.jar
+   ]]></notes>
+    <packageUrl regex="true">^pkg:maven/com\.fasterxml\.jackson\.core/jackson-databind@.*$</packageUrl>
+    <cve>CVE-2019-12814</cve>
+  </suppress>
+  <suppress>
+    <notes><![CDATA[
+   file name: guava-20.0.jar
+   ]]></notes>
+    <packageUrl regex="true">^pkg:maven/com\.google\.guava/guava@.*$</packageUrl>
+    <vulnerabilityName>CVE-2018-10237</vulnerabilityName>
+  </suppress>
 </suppressions>
