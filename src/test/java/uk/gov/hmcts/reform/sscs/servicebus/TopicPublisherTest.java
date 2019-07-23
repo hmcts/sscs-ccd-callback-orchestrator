@@ -6,17 +6,13 @@ import org.junit.runner.RunWith;
 import org.mockito.junit.MockitoJUnitRunner;
 import org.springframework.jms.IllegalStateException;
 import org.springframework.jms.connection.CachingConnectionFactory;
+import org.springframework.jms.connection.SingleConnectionFactory;
 import org.springframework.jms.core.JmsTemplate;
 
+import javax.jms.ConnectionFactory;
 import java.net.NoRouteToHostException;
 
-import static org.mockito.Mockito.any;
-import static org.mockito.Mockito.anyString;
-import static org.mockito.Mockito.doThrow;
-import static org.mockito.Mockito.eq;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.times;
-import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.*;
 
 @RunWith(MockitoJUnitRunner.class)
 public class TopicPublisherTest {
@@ -48,6 +44,22 @@ public class TopicPublisherTest {
         } catch (Exception e) {
             verify(connectionFactory).resetConnection();
             verify(jmsTemplate,times(2)).send(eq(DESTINATION), any());
+        }
+
+    }
+
+    @Test
+    public void sendMessageWhenThrowExceptionWhenConnectionFactoryInstanceDifferent() {
+        SingleConnectionFactory connectionFactory = mock(SingleConnectionFactory.class);
+        doThrow(IllegalStateException.class).when(jmsTemplate).send(anyString(),any());
+
+        TopicPublisher topicPublisher = new TopicPublisher(jmsTemplate, DESTINATION, connectionFactory);
+
+        try {
+            topicPublisher.sendMessage("a message");
+        } catch (Exception e) {
+            verify(connectionFactory,never()).resetConnection();
+            verify(jmsTemplate,times(1)).send(eq(DESTINATION), any());
         }
 
     }
