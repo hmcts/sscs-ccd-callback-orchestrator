@@ -47,7 +47,7 @@ public class TopicJmsTest {
         connection.start();
         jmsTemplate.setExplicitQosEnabled(true);
         jmsTemplate.setTimeToLive(10000L);
-        final TopicPublisher publisher = new TopicPublisher(jmsTemplate, DESTINATION);
+        final TopicPublisher publisher = new TopicPublisher(jmsTemplate, DESTINATION, connectionFactory);
         publisher.sendMessage(MESSAGE);
 
         Session session = connection.createSession(true, Session.SESSION_TRANSACTED);
