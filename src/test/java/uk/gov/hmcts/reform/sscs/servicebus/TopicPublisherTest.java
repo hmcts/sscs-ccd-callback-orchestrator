@@ -9,10 +9,16 @@ import org.springframework.jms.connection.CachingConnectionFactory;
 import org.springframework.jms.connection.SingleConnectionFactory;
 import org.springframework.jms.core.JmsTemplate;
 
-import javax.jms.ConnectionFactory;
 import java.net.NoRouteToHostException;
 
-import static org.mockito.Mockito.*;
+import static org.mockito.Mockito.any;
+import static org.mockito.Mockito.anyString;
+import static org.mockito.Mockito.doThrow;
+import static org.mockito.Mockito.eq;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.never;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
 
 @RunWith(MockitoJUnitRunner.class)
 public class TopicPublisherTest {
@@ -20,7 +26,7 @@ public class TopicPublisherTest {
     private static final String DESTINATION = "Bermuda";
     private final JmsTemplate jmsTemplate = mock(JmsTemplate.class);
     private final CachingConnectionFactory connectionFactory = mock(CachingConnectionFactory.class);
-    private final TopicPublisher underTest = new TopicPublisher(jmsTemplate, DESTINATION, connectionFactory);
+    private TopicPublisher underTest = new TopicPublisher(jmsTemplate, DESTINATION, connectionFactory);
 
     @Test
     public void sendMessageCallsTheJmsTemplate() {
@@ -53,10 +59,10 @@ public class TopicPublisherTest {
         SingleConnectionFactory connectionFactory = mock(SingleConnectionFactory.class);
         doThrow(IllegalStateException.class).when(jmsTemplate).send(anyString(),any());
 
-        TopicPublisher topicPublisher = new TopicPublisher(jmsTemplate, DESTINATION, connectionFactory);
+        underTest = new TopicPublisher(jmsTemplate, DESTINATION, connectionFactory);
 
         try {
-            topicPublisher.sendMessage("a message");
+            underTest.sendMessage("a message");
         } catch (Exception e) {
             verify(connectionFactory,never()).resetConnection();
             verify(jmsTemplate,times(1)).send(eq(DESTINATION), any());
