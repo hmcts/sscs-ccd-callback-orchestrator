@@ -22,13 +22,15 @@ public class TopicPublisher {
 
     private final String destination;
 
-    @Autowired
-    private ConnectionFactory connectionFactory;
+    private final ConnectionFactory connectionFactory;
 
     @Autowired
-    public TopicPublisher(JmsTemplate jmsTemplate, @Value("${amqp.topic}") final String destination) {
+    public TopicPublisher(JmsTemplate jmsTemplate,
+                          @Value("${amqp.topic}") final String destination,
+                          ConnectionFactory connectionFactory) {
         this.jmsTemplate = jmsTemplate;
         this.destination = destination;
+        this.connectionFactory = connectionFactory;
     }
 
     @Retryable(
