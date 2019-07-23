@@ -1,8 +1,10 @@
 package uk.gov.hmcts.reform.sscs.servicebus;
 
+import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.junit.MockitoJUnitRunner;
+import org.springframework.jms.IllegalStateException;
 import org.springframework.jms.connection.CachingConnectionFactory;
 import org.springframework.jms.core.JmsTemplate;
 
@@ -37,15 +39,26 @@ public class TopicPublisherTest {
         underTest.recoverMessage(exception);
     }
 
-    @Test(expected = IllegalStateException.class)
+    @Test
     public void sendMessageWhenThrowException() {
         doThrow(IllegalStateException.class).when(jmsTemplate).send(anyString(),any());
 
-        underTest.sendMessage("a message");
-
-        verify(connectionFactory).resetConnection();
-        verify(jmsTemplate,times(2)).send(eq(DESTINATION), any());
+        try {
+            underTest.sendMessage("a message");
+        } catch (Exception e) {
+            verify(connectionFactory).resetConnection();
+            verify(jmsTemplate,times(2)).send(eq(DESTINATION), any());
+        }
 
     }
 
+    @Test(expected = Exception.class)
+    public void sendMessageWhenOtherThrowException() {
+        doThrow(Exception.class).when(jmsTemplate).send(anyString(),any());
+
+        underTest.sendMessage("a message");
+
+        Assert.assertTrue(false);
+
+    }
 }
