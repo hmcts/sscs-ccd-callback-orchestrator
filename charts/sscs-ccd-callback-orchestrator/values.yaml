@@ -1,5 +1,5 @@
 java:
-  image: 'https://hmctspublic.azurecr.io/hmcts/sscs/ccd-callback-orchestrator:latest'
+  image: 'https://hmctspublic.azurecr.io/sscs/ccd-callback-orchestrator:latest'
   applicationPort: 8070
   keyVaults:
     sscs:
