@@ -169,6 +169,10 @@ dependencyManagement {
     // remove once spring manager incorporates this changes
     dependencySet(group: 'com.fasterxml.jackson.core', version: '2.9.9') {
       entry 'jackson-core'
+    }
+    // solves CVE-2019-14439
+    // remove once spring manager incorporates this changes
+    dependencySet(group: 'com.fasterxml.jackson.core', version: '2.9.9.3') {
       entry 'jackson-databind'
     }
   }
@@ -203,7 +207,7 @@ dependencies {
   testCompile group: 'org.junit.jupiter', name: 'junit-jupiter-params', version: versions.junit
   testRuntimeOnly group: 'org.junit.jupiter', name: 'junit-jupiter-engine', version: versions.junit
 
-  testCompile group: 'uk.gov.hmcts.reform', name: 'sscs-common', version:  '3.0.44'
+  testCompile group: 'uk.gov.hmcts.reform', name: 'sscs-common', version:  '3.0.45'
   testCompile group: 'org.springframework.boot', name: 'spring-boot-starter-test'
   testCompile group: 'org.mockito', name: 'mockito-core', version: '3.0.0'
   testCompile 'pl.pragmatists:JUnitParams:1.1.1'
