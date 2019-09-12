@@ -56,7 +56,7 @@ data "azurerm_key_vault_secret" "sscs_asb_primary_send_and_listen_shared_access_
 }
 
 module "sscs-ccd-callback-orchestrator" {
-  source              = "git@github.com:hmcts/moj-module-webapp?ref=master"
+  source              = "git@github.com:hmcts/cnp-module-webapp?ref=master"
   product             = "${var.product}-${var.component}"
   location            = "${var.location_app}"
   env                 = "${var.env}"
