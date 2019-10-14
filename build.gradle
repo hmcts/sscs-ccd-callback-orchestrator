@@ -177,6 +177,20 @@ dependencyManagement {
     dependencySet(group: 'com.fasterxml.jackson.core', version: '2.9.9.3') {
       entry 'jackson-databind'
     }
+
+    // CVE-2019-16869 - brought in by qpid-jms-client
+    dependencySet(group: 'io.netty', version: '4.1.37.Final') {
+      entry 'netty-handler'
+      entry 'netty-transport-native-epoll'
+      entry 'netty-transport-native-kqueue'
+      entry 'netty-codec-http'
+      entry 'netty-codec'
+      entry 'netty-transport-native-unix-common'
+      entry 'netty-transport'
+      entry 'netty-buffer'
+      entry 'netty-resolver'
+      entry 'netty-common'
+    }
   }
 }
 
@@ -191,7 +205,7 @@ dependencies {
   compile group: 'org.springframework.retry', name: 'spring-retry', version: '1.2.4.RELEASE'
   compile group: 'org.springframework.cloud', name: 'spring-cloud-starter-netflix-hystrix', version: '2.1.2.RELEASE'
 
-  compile group: 'org.apache.qpid', name: 'qpid-jms-client', version: '0.44.0'
+  compile group: 'org.apache.qpid', name: 'qpid-jms-client', version: '0.46.0'
   compile group: 'io.github.openfeign', name: 'feign-jackson', version: versions.feignVersion
   compile group: 'io.springfox', name: 'springfox-swagger2', version: versions.springfoxSwagger
 
