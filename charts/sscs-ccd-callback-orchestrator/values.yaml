@@ -24,3 +24,9 @@ java:
     ROOT_LOGGING_LEVEL: INFO
     LOG_OUTPUT: single
     IDAM_OAUTH2_CLIENT_ID: "sscs"
+    TRUST_ALL_CERTS: "false"
+    IDAM_OAUTH2_REDIRECT_URL: "https://evidence-sharing-{{ .Values.global.environment }}.sscs.reform.hmcts.net"
+    SUBSCRIPTION_NAME: "sscs-evidenceshare-subscription-{{ .Values.global.environment }}"
+    TOPIC_NAME: "sscs-evidenceshare-topic-{{ .Values.global.environment }}"
+    AMQP_HOST: "sscs-servicebus-{{ .Values.global.environment }}.servicebus.windows.net"
+    AMQP_USERNAME: "SendAndListenSharedAccessKey"
