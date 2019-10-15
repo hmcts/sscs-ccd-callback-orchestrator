@@ -1,5 +1,4 @@
 java:
   image: ${IMAGE_NAME}
   ingressHost: ${SERVICE_FQDN}
-  aadIdentityName:
-  readinessDelay: 90
+  readinessDelay: 45
