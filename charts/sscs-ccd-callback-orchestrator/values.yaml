@@ -16,6 +16,7 @@ java:
         - idam-s2s-api
         - sscs-s2s-secret
         - s2s-micro
+        - sscs_asb_primary_send_and_listen_shared_access_key
   environment:
     REFORM_TEAM: sscs
     REFORM_SERVICE_NAME: sscs-ccd-callback-orchestrator
