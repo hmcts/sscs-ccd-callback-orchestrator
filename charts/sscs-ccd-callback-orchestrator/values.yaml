@@ -13,7 +13,6 @@ java:
         - idam-sscs-systemupdate-user
         - idam-sscs-systemupdate-password
         - idam-sscs-oauth2-client-secret
-        - idam-s2s-api
         - sscs-s2s-secret
         - s2s-micro
         - sscs-asb-primary-send-and-listen-shared-access-key
@@ -27,6 +26,7 @@ java:
     LOG_OUTPUT: single
     IDAM_OAUTH2_CLIENT_ID: "sscs"
     TRUST_ALL_CERTS: "false"
+    IDAM_S2S_AUTH: "http://rpe-service-auth-provider-{{ .Values.global.environment }}.service.core-compute-{{ .Values.global.environment }}.internal"
     IDAM_OAUTH2_REDIRECT_URL: "https://evidence-sharing-preprod.sscs.reform.hmcts.net"
     SUBSCRIPTION_NAME: "sscs-evidenceshare-subscription-{{ .Values.global.environment }}"
     TOPIC_NAME: "sscs-evidenceshare-topic-{{ .Values.global.environment }}"
