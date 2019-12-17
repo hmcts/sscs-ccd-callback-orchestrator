@@ -65,6 +65,7 @@ module "sscs-ccd-callback-orchestrator" {
   subscription        = "${var.subscription}"
   capacity            = "${var.capacity}"
   common_tags         = "${var.common_tags}"
+  enable_ase          = "${var.enable_ase}"
 
   appinsights_instrumentation_key = "${var.appinsights_instrumentation_key}"
 
