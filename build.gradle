@@ -92,7 +92,7 @@ jacocoTestReport {
   }
 }
 
-project.tasks['sonarqube'].dependsOn test, integration, jacocoTestReport
+project.tasks['sonarqube'].dependsOn test, integration
 check.dependsOn integration
 checkstyleMain.shouldRunAfter(compileJava)
 test.shouldRunAfter(checkstyleTest)
@@ -105,7 +105,8 @@ sonarqube {
   properties {
     property "sonar.projectName", "SSCS - CCD Callback Orchestrator"
     property "sonar.projectKey", "uk.gov.hmcts.reform:sscs-ccd-callback-orchestrator"
-    property "sonar.coverage.jacoco.xmlReportPaths", "${project.buildDir}/reports/jacoco/test/jacocoTestReport.xml"
+    property "sonar.jacoco.reportPath", "${project.buildDir}/jacoco/test.exec"
+    property "sonar.jacoco.itReportPath", "${project.buildDir}/jacoco/integration.exec"
     property "sonar.exclusions", "src/main/java/uk/gov/hmcts/reform/sscs/domain/**," +
       "src/main/java/uk/gov/hmcts/reform/sscs/Application.java," +
       "src/main/java/uk/gov/hmcts/reform/sscs/domain/**," +
