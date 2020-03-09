@@ -1,5 +1,7 @@
 package uk.gov.hmcts.reform.sscs.servicebus;
 
+import javax.jms.ConnectionFactory;
+import javax.jms.Session;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -10,9 +12,6 @@ import org.springframework.retry.annotation.Backoff;
 import org.springframework.retry.annotation.Recover;
 import org.springframework.retry.annotation.Retryable;
 import org.springframework.stereotype.Service;
-
-import javax.jms.ConnectionFactory;
-import javax.jms.Session;
 
 @Service
 @Slf4j

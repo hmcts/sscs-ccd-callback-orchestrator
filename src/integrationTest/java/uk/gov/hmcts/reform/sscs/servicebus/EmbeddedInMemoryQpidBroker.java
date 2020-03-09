@@ -1,12 +1,11 @@
 package uk.gov.hmcts.reform.sscs.servicebus;
 
-import org.apache.qpid.server.SystemLauncher;
-import org.apache.qpid.server.configuration.IllegalConfigurationException;
-import org.apache.qpid.server.model.SystemConfig;
-
 import java.net.URL;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
+import org.apache.qpid.server.SystemLauncher;
+import org.apache.qpid.server.configuration.IllegalConfigurationException;
+import org.apache.qpid.server.model.SystemConfig;
 
 class EmbeddedInMemoryQpidBroker {
 

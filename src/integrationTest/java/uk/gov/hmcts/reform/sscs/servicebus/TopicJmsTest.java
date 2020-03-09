@@ -1,22 +1,16 @@
 package uk.gov.hmcts.reform.sscs.servicebus;
 
+import static org.junit.Assert.assertEquals;
+
+import java.security.KeyManagementException;
+import java.security.NoSuchAlgorithmException;
+import javax.jms.*;
 import org.apache.qpid.jms.JmsTopic;
 import org.junit.ClassRule;
 import org.junit.Ignore;
 import org.junit.Test;
 import org.springframework.jms.core.JmsTemplate;
 import uk.gov.hmcts.reform.sscs.servicebus.messaging.MessagingConfig;
-
-import java.security.KeyManagementException;
-import java.security.NoSuchAlgorithmException;
-import javax.jms.Connection;
-import javax.jms.ConnectionFactory;
-import javax.jms.JMSException;
-import javax.jms.Message;
-import javax.jms.MessageConsumer;
-import javax.jms.Session;
-
-import static org.junit.Assert.assertEquals;
 
 @Ignore("Need to create an exchange before you use it.")
 public class TopicJmsTest {

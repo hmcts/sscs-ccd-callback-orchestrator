@@ -1,5 +1,7 @@
 package uk.gov.hmcts.reform.sscs;
 
+import static org.junit.Assert.assertNotNull;
+
 import junitparams.JUnitParamsRunner;
 import org.junit.ClassRule;
 import org.junit.Rule;
@@ -12,8 +14,6 @@ import org.springframework.test.context.junit4.rules.SpringClassRule;
 import org.springframework.test.context.junit4.rules.SpringMethodRule;
 import uk.gov.hmcts.reform.authorisation.ServiceAuthorisationHealthApi;
 import uk.gov.hmcts.reform.sscs.servicebus.TopicPublisher;
-
-import static org.junit.Assert.assertNotNull;
 
 @RunWith(JUnitParamsRunner.class)
 @SpringBootTest

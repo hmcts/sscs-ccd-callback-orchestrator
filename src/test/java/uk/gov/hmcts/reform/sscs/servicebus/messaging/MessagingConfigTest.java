@@ -1,8 +1,8 @@
 package uk.gov.hmcts.reform.sscs.servicebus.messaging;
 
-import org.junit.Test;
-
 import static org.junit.Assert.assertTrue;
+
+import org.junit.Test;
 
 public class MessagingConfigTest {
 
