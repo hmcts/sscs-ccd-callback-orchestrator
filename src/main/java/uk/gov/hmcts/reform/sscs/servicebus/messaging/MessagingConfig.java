@@ -50,7 +50,7 @@ public class MessagingConfig {
     /*
      * DO NOT USE THIS IN PRODUCTION!
      * This was only used for testing unverified ssl certs locally!
-     */
+     *
     @Bean
     @Deprecated
     public SSLContext jmsSslContext(@Value("${amqp.trustAllCerts}") final boolean trustAllCerts)
@@ -89,6 +89,7 @@ public class MessagingConfig {
             }
         };
     }
+    */
 
     @Bean
     public JmsTemplate jmsTemplate(ConnectionFactory jmsConnectionFactory) {
