@@ -1,7 +1,6 @@
 java:
   image: ${IMAGE_NAME}
   ingressHost: ${SERVICE_FQDN}
-  aadIdentityName:
   readinessDelay: 90
   environment:
     SUBSCRIPTION_NAME: "sscs-evidenceshare-subscription-aat"

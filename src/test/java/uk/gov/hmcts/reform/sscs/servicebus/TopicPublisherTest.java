@@ -1,5 +1,8 @@
 package uk.gov.hmcts.reform.sscs.servicebus;
 
+import static org.mockito.Mockito.*;
+
+import java.net.NoRouteToHostException;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -8,17 +11,6 @@ import org.springframework.jms.IllegalStateException;
 import org.springframework.jms.connection.CachingConnectionFactory;
 import org.springframework.jms.connection.SingleConnectionFactory;
 import org.springframework.jms.core.JmsTemplate;
-
-import java.net.NoRouteToHostException;
-
-import static org.mockito.Mockito.any;
-import static org.mockito.Mockito.anyString;
-import static org.mockito.Mockito.doThrow;
-import static org.mockito.Mockito.eq;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.never;
-import static org.mockito.Mockito.times;
-import static org.mockito.Mockito.verify;
 
 @RunWith(MockitoJUnitRunner.class)
 public class TopicPublisherTest {

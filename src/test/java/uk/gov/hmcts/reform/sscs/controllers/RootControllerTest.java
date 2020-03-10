@@ -1,9 +1,9 @@
 package uk.gov.hmcts.reform.sscs.controllers;
 
+import static org.junit.Assert.assertEquals;
+
 import org.junit.Test;
 import org.springframework.http.ResponseEntity;
-
-import static org.junit.Assert.assertEquals;
 
 public class RootControllerTest {
     private final RootController controller = new RootController();
