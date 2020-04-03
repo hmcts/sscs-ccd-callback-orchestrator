@@ -51,6 +51,7 @@ public class MessagingConfig {
      * DO NOT USE THIS IN PRODUCTION!
      * This was only used for testing unverified ssl certs locally!
      */
+    @SuppressWarnings("squid:S4423")
     @Bean
     @Deprecated
     public SSLContext jmsSslContext(@Value("${amqp.trustAllCerts}") final boolean trustAllCerts)
@@ -78,11 +79,13 @@ public class MessagingConfig {
                 }
 
                 @Override
+                @SuppressWarnings("squid:S4830")
                 public void checkClientTrusted(
                     X509Certificate[] certs, String authType) {
                 }
 
                 @Override
+                @SuppressWarnings("squid:S4830")
                 public void checkServerTrusted(
                     X509Certificate[] certs, String authType) {
                 }
