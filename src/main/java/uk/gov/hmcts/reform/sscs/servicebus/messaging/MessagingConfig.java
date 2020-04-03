@@ -47,9 +47,11 @@ public class MessagingConfig {
         return new CachingConnectionFactory(jmsConnectionFactory);
     }
 
-    /*
-     * DO NOT USE THIS IN PRODUCTION!
+    /**
+     * DO NOT USE THIS IN PRODUCTION!.
      * This was only used for testing unverified ssl certs locally!
+     *
+     * @deprecated Only used for testing.
      */
     @SuppressWarnings("squid:S4423")
     @Bean
@@ -82,12 +84,14 @@ public class MessagingConfig {
                 @SuppressWarnings("squid:S4830")
                 public void checkClientTrusted(
                     X509Certificate[] certs, String authType) {
+                    // Empty
                 }
 
                 @Override
                 @SuppressWarnings("squid:S4830")
                 public void checkServerTrusted(
                     X509Certificate[] certs, String authType) {
+                    // Empty
                 }
             }
         };
