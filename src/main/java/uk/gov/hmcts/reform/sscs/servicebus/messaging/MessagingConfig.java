@@ -1,7 +1,13 @@
 package uk.gov.hmcts.reform.sscs.servicebus.messaging;
 
+import java.security.KeyManagementException;
+import java.security.NoSuchAlgorithmException;
+import java.security.SecureRandom;
+import java.security.cert.X509Certificate;
 import javax.jms.ConnectionFactory;
 import javax.net.ssl.SSLContext;
+import javax.net.ssl.TrustManager;
+import javax.net.ssl.X509TrustManager;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.qpid.jms.JmsConnectionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,10 +47,13 @@ public class MessagingConfig {
         return new CachingConnectionFactory(jmsConnectionFactory);
     }
 
-    /*
-     * DO NOT USE THIS IN PRODUCTION!
+    /**
+     * DO NOT USE THIS IN PRODUCTION!.
      * This was only used for testing unverified ssl certs locally!
      *
+     * @deprecated Only used for testing.
+     */
+    @SuppressWarnings("squid:S4423")
     @Bean
     @Deprecated
     public SSLContext jmsSslContext(@Value("${amqp.trustAllCerts}") final boolean trustAllCerts)
@@ -72,18 +81,21 @@ public class MessagingConfig {
                 }
 
                 @Override
+                @SuppressWarnings("squid:S4830")
                 public void checkClientTrusted(
                     X509Certificate[] certs, String authType) {
+                    // Empty
                 }
 
                 @Override
+                @SuppressWarnings("squid:S4830")
                 public void checkServerTrusted(
                     X509Certificate[] certs, String authType) {
+                    // Empty
                 }
             }
         };
     }
-    */
 
     @Bean
     public JmsTemplate jmsTemplate(ConnectionFactory jmsConnectionFactory) {
