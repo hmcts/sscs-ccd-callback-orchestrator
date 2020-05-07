@@ -41,6 +41,6 @@ withPipeline(type, product, component) {
   installCharts()
   loadVaultSecrets(secrets)
   enableSlackNotifications('#sscs-tech')
-  disableLegacyDeployment()
+  deployLegacyDeployment()
   enableAksStagingDeployment()
 }
