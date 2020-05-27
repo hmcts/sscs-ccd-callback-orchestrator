@@ -38,7 +38,6 @@ static LinkedHashMap<String, Object> secret(String secretName, String envVar) {
 withPipeline(type, product, component) {
   env.IDAM_OAUTH2_REDIRECT_URL = "https://evidence-sharing-preprod.sscs.reform.hmcts.net"
 
-  installCharts()
   loadVaultSecrets(secrets)
   enableSlackNotifications('#sscs-tech')
   disableLegacyDeployment()
