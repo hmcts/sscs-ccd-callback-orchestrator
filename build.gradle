@@ -232,7 +232,7 @@ dependencies {
   testCompile group: 'org.springframework.boot', name: 'spring-boot-starter-test'
   testCompile group: 'org.mockito', name: 'mockito-core', version: '3.1.0'
   testCompile 'pl.pragmatists:JUnitParams:1.1.1'
-  testCompile group: 'org.apache.qpid', name: 'qpid-broker-core', version: '7.1.4'
+  testCompile group: 'org.apache.qpid', name: 'qpid-broker-core', version: '8.0.0'
   testCompile group: 'org.apache.qpid', name: 'qpid-broker-plugins-amqp-1-0-protocol', version: '7.1.4'
   testCompile group: 'org.apache.qpid', name: 'qpid-broker-plugins-memory-store', version: '7.1.5'
 
