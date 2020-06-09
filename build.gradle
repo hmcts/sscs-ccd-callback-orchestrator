@@ -203,6 +203,8 @@ dependencies {
   compile group: 'org.springframework.boot', name: 'spring-boot-starter-actuator'
   compile group: 'org.springframework.boot', name: 'spring-boot-starter-aop'
   compile group: 'org.springframework.boot', name: 'spring-boot-starter-json'
+  compile group: 'org.springframework.boot', name: 'spring-boot-starter-validation'
+
   compile group: 'org.springframework', name: 'spring-jms'
 
   compile group: 'org.springframework.retry', name: 'spring-retry', version: '1.2.5.RELEASE'
