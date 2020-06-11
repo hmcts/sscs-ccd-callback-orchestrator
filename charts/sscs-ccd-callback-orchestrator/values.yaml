@@ -1,6 +1,7 @@
 java:
   image: 'https://hmctspublic.azurecr.io/sscs/ccd-callback-orchestrator:latest'
   applicationPort: 8070
+  readinessPath: '/health/readiness'
   aadIdentityName: sscs
   ingressHost: sscs-ccd-callback-orchestrator-{{ .Values.global.environment }}.service.core-compute-{{ .Values.global.environment }}.internal
   keyVaults:
