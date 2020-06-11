@@ -25,8 +25,12 @@ public class CcdCallbackOrchestratorController {
     public ResponseEntity<String> send(
         @RequestHeader(AuthorisationService.SERVICE_AUTHORISATION_HEADER) String serviceAuthHeader,
         @RequestBody String body) {
+        log.info("Before sending message.................................. to be authorised");
         authorisationService.authorise(serviceAuthHeader);
+        log.info("Authorised successful............................................. ");
+        log.info("before sending message............................................. ");
         topicPublisher.sendMessage(body);
+        log.info("Message sent............................................ ");
         return new ResponseEntity<>("{}", HttpStatus.OK);
     }
 }
