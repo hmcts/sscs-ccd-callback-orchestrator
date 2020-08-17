@@ -13,8 +13,8 @@ properties([
 @Library("Infrastructure")
 
 def type = "java"
-def product = "rpe"
-def component = "spring-boot-template"
+def product = "sscs"
+def component = "ccd-callback-orchestrator"
 
 def secrets = [
   'sscs-${env}': [
