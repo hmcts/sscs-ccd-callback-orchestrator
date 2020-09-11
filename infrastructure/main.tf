@@ -1,5 +1,5 @@
 provider "azurerm" {
-  version = "1.23.0"
+  features {}
 }
 
 locals {
@@ -7,6 +7,6 @@ locals {
 }
 
 data "azurerm_key_vault" "sscs_key_vault" {
-  name                = "${local.azureVaultName}"
-  resource_group_name = "${local.azureVaultName}"
+  name                = local.azureVaultName
+  resource_group_name = local.azureVaultName
 }
