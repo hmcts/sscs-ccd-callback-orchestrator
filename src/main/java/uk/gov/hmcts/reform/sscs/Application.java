@@ -12,7 +12,7 @@ import org.springframework.retry.annotation.EnableRetry;
 @EnableFeignClients
 @EnableRetry
 @ComponentScan(
-    basePackages = "uk.gov.hmcts.reform.sscs",
+    basePackages = {"uk.gov.hmcts.reform.sscs", "uk.gov.hmcts.reform.idam.client"},
     basePackageClasses = Application.class,
     lazyInit = true
 )

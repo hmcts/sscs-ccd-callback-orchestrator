@@ -2,6 +2,9 @@ package uk.gov.hmcts.reform.sscs.controllers;
 
 import static org.junit.Assert.assertEquals;
 
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import org.apache.commons.io.FileUtils;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -10,6 +13,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.cloud.openfeign.EnableFeignClients;
+import org.springframework.core.io.ClassPathResource;
 import org.springframework.http.*;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
@@ -49,14 +53,18 @@ public class CcdCallbackOrchestratorControllerTest {
     }
 
     @Test
-    public void canAuthenticateAndPlaceJsonBodyInAMessageQueue() {
+    public void canAuthenticateAndPlaceJsonBodyInAMessageQueue() throws Exception {
 
         HttpHeaders headers = new HttpHeaders();
         headers.set("ServiceAuthorization", idamTokens.getServiceAuthorization());
-
-        HttpEntity<String> request = new HttpEntity<String>("{'json': true}", headers);
+        String jsonCallbackForTest = getJsonCallbackForTest("validAppealCreatedCallback.json");
+        HttpEntity<String> request = new HttpEntity<String>(jsonCallbackForTest, headers);
         ResponseEntity<String> response = restTemplate.exchange("/send", HttpMethod.POST, request, String.class);
 
         assertEquals(HttpStatus.OK.value(), response.getStatusCodeValue());
+    }
+
+    public String getJsonCallbackForTest(String path) throws IOException {
+        return FileUtils.readFileToString(new ClassPathResource(path).getFile(), StandardCharsets.UTF_8.name());
     }
 }
