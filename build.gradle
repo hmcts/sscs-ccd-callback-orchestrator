@@ -137,6 +137,10 @@ repositories {
   }
   jcenter()
   mavenCentral()
+
+  // jitpack should be last resort
+  // see: https://github.com/jitpack/jitpack.io/issues/1939
+  maven { url 'https://jitpack.io' }
 }
 
 // it is important to specify logback classic and core packages explicitly as libraries like spring boot
@@ -206,7 +210,7 @@ dependencies {
   compile group: 'uk.gov.hmcts.reform', name: 'java-logging-httpcomponents', version: versions.reformLogging
   compile group: 'uk.gov.hmcts.reform', name: 'java-logging-appinsights', version: versions.reformLogging
   compile group: 'uk.gov.hmcts.reform', name: 'service-auth-provider-client', version: '3.1.2'
-  compile group: 'uk.gov.hmcts.reform', name: 'sscs-common', version:  '3.4.53'
+  compile group: 'uk.gov.hmcts.reform', name: 'sscs-common', version:  '3.4.69'
 
   compile group: 'com.microsoft.azure', name: 'applicationinsights-logging-logback', version: '2.6.2'
   compile group: 'com.microsoft.azure', name: 'applicationinsights-spring-boot-starter', version: '2.6.2'
