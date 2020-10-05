@@ -9,6 +9,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import uk.gov.hmcts.reform.sscs.domain.CaseData;
+import uk.gov.hmcts.reform.sscs.exception.OrchestratorJsonException;
 import uk.gov.hmcts.reform.sscs.service.AuthorisationService;
 import uk.gov.hmcts.reform.sscs.servicebus.TopicPublisher;
 
@@ -41,7 +42,7 @@ public class CcdCallbackOrchestratorController {
         try {
             return mapper.readValue(body, CaseData.class);
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            throw new OrchestratorJsonException(e);
         }
     }
 }

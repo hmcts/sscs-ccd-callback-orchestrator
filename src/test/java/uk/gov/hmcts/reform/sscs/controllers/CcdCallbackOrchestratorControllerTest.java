@@ -12,6 +12,7 @@ import org.mockito.Mock;
 import org.springframework.http.ResponseEntity;
 import uk.gov.hmcts.reform.sscs.domain.CaseData;
 import uk.gov.hmcts.reform.sscs.domain.CaseDetails;
+import uk.gov.hmcts.reform.sscs.exception.OrchestratorJsonException;
 import uk.gov.hmcts.reform.sscs.service.AuthorisationService;
 import uk.gov.hmcts.reform.sscs.servicebus.TopicPublisher;
 
@@ -42,5 +43,11 @@ public class CcdCallbackOrchestratorControllerTest {
         verify(topicPublisher).sendMessage(eq(message));
         assertEquals(200, responseEntity.getStatusCode().value());
         assertEquals("{}", responseEntity.getBody());
+    }
+
+    @Test(expected = OrchestratorJsonException.class)
+    public void shouldThrowExceptionForInvalidMessage() throws Exception {
+        ResponseEntity<String> responseEntity = controller.send("", MESSAGE);
+
     }
 }
