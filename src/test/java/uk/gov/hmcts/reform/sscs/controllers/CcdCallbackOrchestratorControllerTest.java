@@ -1,6 +1,7 @@
 package uk.gov.hmcts.reform.sscs.controllers;
 
 import static org.junit.Assert.assertEquals;
+import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.verify;
 import static org.mockito.MockitoAnnotations.initMocks;
@@ -40,7 +41,7 @@ public class CcdCallbackOrchestratorControllerTest {
         CaseData caseData = CaseData.builder().eventId("testEventId").caseDetails(CaseDetails.builder().caseId("1234567").build()).build();
         String message = mapper.writeValueAsString(caseData);
         ResponseEntity<String> responseEntity = controller.send("", message);
-        verify(topicPublisher).sendMessage(eq(message));
+        verify(topicPublisher).sendMessage(eq(message), any(), any());
         assertEquals(200, responseEntity.getStatusCode().value());
         assertEquals("{}", responseEntity.getBody());
     }

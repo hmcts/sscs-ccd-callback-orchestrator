@@ -4,6 +4,7 @@ import static org.junit.Assert.assertEquals;
 
 import java.security.KeyManagementException;
 import java.security.NoSuchAlgorithmException;
+import java.util.concurrent.atomic.AtomicReference;
 import javax.jms.*;
 import org.apache.qpid.jms.JmsTopic;
 import org.junit.ClassRule;
@@ -41,7 +42,7 @@ public class TopicJmsTest {
         jmsTemplate.setExplicitQosEnabled(true);
         jmsTemplate.setTimeToLive(10000L);
         final TopicPublisher publisher = new TopicPublisher(jmsTemplate, DESTINATION, connectionFactory);
-        publisher.sendMessage(MESSAGE);
+        publisher.sendMessage(MESSAGE, "1", new AtomicReference<>());
 
         Session session = connection.createSession(true, Session.SESSION_TRANSACTED);
         MessageConsumer subscriber = session.createDurableSubscriber(new JmsTopic(DESTINATION), "sub1");
