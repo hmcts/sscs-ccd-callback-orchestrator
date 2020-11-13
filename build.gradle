@@ -222,7 +222,7 @@ dependencies {
   testCompile group: 'org.junit.jupiter', name: 'junit-jupiter-params', version: versions.junit
   testRuntimeOnly group: 'org.junit.jupiter', name: 'junit-jupiter-engine', version: versions.junit
 
-  testCompile group: 'uk.gov.hmcts.reform', name: 'sscs-common', version:  '4.0.6'
+  testCompile group: 'uk.gov.hmcts.reform', name: 'sscs-common', version:  '4.1.1'
   testCompile group: 'org.springframework.boot', name: 'spring-boot-starter-test'
   testCompile group: 'org.mockito', name: 'mockito-core', version: '3.6.0'
   testCompile 'pl.pragmatists:JUnitParams:1.1.1'
