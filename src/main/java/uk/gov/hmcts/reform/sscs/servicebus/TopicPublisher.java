@@ -58,6 +58,7 @@ public class TopicPublisher {
                 jmsTemplate.send(destination, (Session session) -> session.createTextMessage(message));
                 log.info("In catch, message sent for caseId {}, messageId unknown", caseId);
             } else {
+                log.error("In catch, send message failed for caseId {} with exception: {}", caseId, e);
                 throw e;
             }
         } catch (JMSException e) {
