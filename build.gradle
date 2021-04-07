@@ -227,8 +227,8 @@ dependencies {
   compile group: 'com.microsoft.azure', name: 'applicationinsights-logging-logback', version: '2.6.3'
   compile group: 'com.microsoft.azure', name: 'applicationinsights-spring-boot-starter', version: '2.6.3'
 
-  compileOnly 'org.projectlombok:lombok:1.18.18'
-  annotationProcessor "org.projectlombok:lombok:1.18.16"
+  compileOnly 'org.projectlombok:lombok:1.18.20'
+  annotationProcessor "org.projectlombok:lombok:1.18.20"
 
   testImplementation group: 'org.junit.jupiter', name: 'junit-jupiter-api', version: versions.junit
   testCompile group: 'org.junit.jupiter', name: 'junit-jupiter-params', version: versions.junit
