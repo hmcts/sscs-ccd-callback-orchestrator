@@ -130,9 +130,6 @@ dependencyCheck {
 
 repositories {
   mavenLocal()
-  maven {
-    url "https://dl.bintray.com/hmcts/hmcts-maven"
-  }
   mavenCentral()
   jcenter()
   maven {
@@ -148,7 +145,7 @@ repositories {
 // enforces it's own (older) version which is not recommended.
 def versions = [
   junit           : '5.3.2',
-  reformLogging   : '5.0.1',
+  reformLogging   : '5.1.7',
   springfoxSwagger: '2.9.2',
   feignVersion : '10.1.0'
 ]
@@ -224,9 +221,7 @@ dependencies {
   compile group: 'io.springfox', name: 'springfox-swagger2', version: versions.springfoxSwagger
 
   compile group: 'uk.gov.hmcts.reform', name: 'properties-volume-spring-boot-starter', version:'0.1.0'
-  compile group: 'uk.gov.hmcts.reform', name: 'java-logging', version: versions.reformLogging
-  compile group: 'uk.gov.hmcts.reform', name: 'java-logging-httpcomponents', version: versions.reformLogging
-  compile group: 'uk.gov.hmcts.reform', name: 'java-logging-appinsights', version: versions.reformLogging
+  compile group: 'com.github.hmcts', name: 'java-logging', version: versions.reformLogging
   compile group: 'uk.gov.hmcts.reform', name: 'service-auth-provider-client', version: '4.0.0'
 
   compile group: 'com.microsoft.azure', name: 'applicationinsights-logging-logback', version: '2.6.3'
@@ -239,7 +234,7 @@ dependencies {
   testCompile group: 'org.junit.jupiter', name: 'junit-jupiter-params', version: versions.junit
   testRuntimeOnly group: 'org.junit.jupiter', name: 'junit-jupiter-engine', version: versions.junit
 
-  testCompile group: 'com.github.hmcts', name: 'sscs-common', version: '4.3.11'
+  testCompile group: 'com.github.hmcts', name: 'sscs-common', version: '4.3.12.RC1-SSCS-9066'
 
   testCompile group: 'org.springframework.boot', name: 'spring-boot-starter-test'
   testCompile group: 'org.mockito', name: 'mockito-core', version: '3.9.0'
