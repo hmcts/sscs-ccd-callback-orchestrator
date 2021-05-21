@@ -17,5 +17,8 @@
 "100000_A Server Error response code was returned by the server_http://sscs-ccd-callback-orchestrator-aat.service.core-compute-aat.internal/send_POST" : "ignore",
 "10096_Timestamp Disclosure - Unix_http://sscs-ccd-callback-orchestrator-aat.service.core-compute-aat.internal/v2/api-docs_GET" : "ignore",
 "10096_Timestamp Disclosure - Unix_http://sscs-ccd-callback-orchestrator-aat.service.core-compute-aat.internal/_GET" : "ignore",
-"10096_Timestamp Disclosure - Unix_http://sscs-ccd-callback-orchestrator-aat.service.core-compute-aat.internal/send_POST" : "ignore"
+"10096_Timestamp Disclosure - Unix_http://sscs-ccd-callback-orchestrator-aat.service.core-compute-aat.internal/send_POST" : "ignore",
+"10054_Cookie without SameSite Attribute_http://sscs-ccd-callback-orchestrator-aat.service.core-compute-aat.internal/_GET" : "ignore",
+"10054_Cookie without SameSite Attribute_http://sscs-ccd-callback-orchestrator-aat.service.core-compute-aat.internal/v2/api-docs_GET" : "ignore",
+"10054_Cookie without SameSite Attribute_http://sscs-ccd-callback-orchestrator-aat.service.core-compute-aat.internal/send_POST" : "ignore"
 }
