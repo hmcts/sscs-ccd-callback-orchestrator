@@ -1,13 +1,10 @@
 #!/usr/bin/env bash
-#echo "${SECURITYCONTEXT}" > /zap/security.context
-export LC_ALL=C.UTF-8
-export LANG=C.UTF-8
 
 echo ${TEST_URL}
-zap-api-scan.py -t ${TEST_URL}/v2/api-docs -f openapi -S -d -u ${SecurityRules} -P 1001 -l FAIL
+zap-api-scan.py -t ${TEST_URL}/v2/api-docs -f openapi -S -d -u ${SecurityRules} -P 1005 -l FAIL
 cat zap.out
-zap-cli --zap-url http://0.0.0.0 -p 1001 report -o /zap/api-report.html -f html
+zap-cli --zap-url http://0.0.0.0 -p 1005 report -o /zap/api-report.html -f html
 cp /zap/api-report.html functional-output/
-curl --fail http://0.0.0.0:1001/OTHER/core/other/jsonreport/?formMethod=GET --output report.json
+curl --fail http://0.0.0.0:1005/OTHER/core/other/jsonreport/?formMethod=GET --output report.json
 cp *.* functional-output/
-zap-cli --zap-url http://0.0.0.0 -p 1001 alerts -l Medium --exit-code False
+zap-cli --zap-url http://0.0.0.0 -p 1005 alerts -l Medium --exit-code False
