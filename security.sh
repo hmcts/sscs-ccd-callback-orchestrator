@@ -1,4 +1,8 @@
 #!/usr/bin/env bash
+#echo "${SECURITYCONTEXT}" > /zap/security.context
+export LC_ALL=C.UTF-8
+export LANG=C.UTF-8
+
 echo ${TEST_URL}
 zap-api-scan.py -t ${TEST_URL}/v2/api-docs -f openapi -S -d -u ${SecurityRules} -P 1001 -l FAIL
 cat zap.out
