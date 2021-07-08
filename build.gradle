@@ -152,7 +152,7 @@ def versions = [
 
 dependencyManagement {
   imports {
-    mavenBom "org.springframework.cloud:spring-cloud-dependencies:Hoxton.SR11"
+    mavenBom "org.springframework.cloud:spring-cloud-dependencies:Hoxton.SR12"
   }
   dependencies {
     dependency group: 'commons-beanutils', name: 'commons-beanutils', version: '1.9.4'
