@@ -226,6 +226,9 @@ dependencyManagement {
     dependencySet(group: 'commons-io', version: '2.11.0') {
       entry 'commons-io'
     }
+
+    //CVE-2021-28170
+    dependency group: 'org.glassfish', name: 'jakarta.el', version: '4.0.1'
   }
 }
 
