@@ -93,10 +93,14 @@ jacocoTestReport {
 }
 
 pitest {
-  targetClasses = ['uk.gov.hmcts.reform.sscs.service.*']
-  excludedClasses = ['uk.gov.hmcts.reform.sscs.config.*']
+  targetClasses = ['uk.gov.hmcts.reform.sscs.service.*',
+                   'uk.gov.hmcts.reform.sscs.exception.*',
+                   'uk.gov.hmcts.reform.sscs.controllers.*']
+  excludedClasses = ['uk.gov.hmcts.reform.sscs.config.*',
+                     'uk.gov.hmcts.reform.sscs.domain.*',
+                     'uk.gov.hmcts.reform.sscs.servicebus.*']
   excludedMethods = ['equals', 'hashcode']
-  jvmArgs = ['-Xms1G','-Xmx3G']
+  jvmArgs = ['-Xms1G', '-Xmx3G']
   enableDefaultIncrementalAnalysis = true
   historyInputLocation = 'build/reports/pitest/fastermutationtesting'
   historyOutputLocation = 'build/reports/pitest/fastermutationtestingoutput'
@@ -104,7 +108,7 @@ pitest {
   verbose = true
   outputFormats = ['XML', 'HTML']
   timestampedReports = false
-  mutationThreshold = 50
+  mutationThreshold = 75
 }
 
 project.tasks['sonarqube'].dependsOn test, integration, jacocoTestReport
