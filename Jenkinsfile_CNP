@@ -35,6 +35,8 @@ static LinkedHashMap<String, Object> secret(String secretName, String envVar) {
   ]
 }
 
+def branchesToSync = ['demo', 'ithc', 'perftest']
+
 withPipeline(type, product, component) {
   env.IDAM_OAUTH2_REDIRECT_URL = "https://evidence-sharing-preprod.sscs.reform.hmcts.net"
 
@@ -42,4 +44,5 @@ withPipeline(type, product, component) {
   enableSlackNotifications('#sscs-tech')
   disableLegacyDeployment()
   enableAksStagingDeployment()
+  syncBranchesWithMaster(branchesToSync)
 }
