@@ -20,11 +20,14 @@ import uk.gov.hmcts.reform.sscs.servicebus.TopicPublisher;
 public class CcdCallbackOrchestratorController {
     private final AuthorisationService authorisationService;
     private final TopicPublisher topicPublisher;
+    private final ObjectMapper mapper;
 
     public CcdCallbackOrchestratorController(final AuthorisationService authorisationService,
-                                             final TopicPublisher topicPublisher) {
+                                             final TopicPublisher topicPublisher,
+                                             final ObjectMapper mapper) {
         this.authorisationService = authorisationService;
         this.topicPublisher = topicPublisher;
+        this.mapper = mapper;
     }
 
     @RequestMapping(value = "/send", produces = APPLICATION_JSON_VALUE, method = RequestMethod.POST)
@@ -40,7 +43,6 @@ public class CcdCallbackOrchestratorController {
     }
 
     private CaseData buildCaseDataMap(final String body) {
-        final ObjectMapper mapper = new ObjectMapper();
         try {
             return mapper.readValue(body, CaseData.class);
         } catch (IOException e) {
