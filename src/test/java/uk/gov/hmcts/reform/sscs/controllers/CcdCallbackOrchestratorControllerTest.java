@@ -4,7 +4,7 @@ import static org.junit.Assert.assertEquals;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.verify;
-import static org.mockito.MockitoAnnotations.initMocks;
+import static org.mockito.MockitoAnnotations.openMocks;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.Before;
@@ -31,7 +31,7 @@ public class CcdCallbackOrchestratorControllerTest {
 
     @Before
     public void setUp() {
-        initMocks(this);
+        openMocks(this);
         controller = new CcdCallbackOrchestratorController(authorisationService, topicPublisher);
     }
 
@@ -48,7 +48,6 @@ public class CcdCallbackOrchestratorControllerTest {
 
     @Test(expected = OrchestratorJsonException.class)
     public void shouldThrowExceptionForInvalidMessage() throws Exception {
-        ResponseEntity<String> responseEntity = controller.send("", MESSAGE);
-
+        controller.send("", MESSAGE);
     }
 }
