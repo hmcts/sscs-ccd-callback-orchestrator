@@ -37,7 +37,7 @@ public class CcdCallbackOrchestratorController {
         authorisationService.authorise(serviceAuthHeader);
         CaseData caseData = buildCaseDataMap(body);
         String caseId = caseData.getCaseDetails().getCaseId();
-        log.info("Sending message for event: {} for case id: {} message {}", caseData.getEventId(), caseId, body);
+        log.info("Sending message for event: {} for case id: {}", caseData.getEventId(), caseId);
         topicPublisher.sendMessage(body, caseId, new AtomicReference<>());
         return new ResponseEntity<>("{}", HttpStatus.OK);
     }
