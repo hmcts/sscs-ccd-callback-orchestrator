@@ -186,8 +186,8 @@ dependencyManagement {
   }
   dependencies {
     dependency group: 'commons-beanutils', name: 'commons-beanutils', version: '1.9.4'
-    dependency group: 'org.apache.logging.log4j', name: 'log4j-api', version: '2.15.0'
-    dependency group: 'org.apache.logging.log4j', name: 'log4j-to-slf4j', version: '2.15.0'
+    dependency group: 'org.apache.logging.log4j', name: 'log4j-api', version: '2.16.0'
+    dependency group: 'org.apache.logging.log4j', name: 'log4j-to-slf4j', version: '2.16.0'
 
         // solves CVE-2019-12086
     // remove once spring manager incorporates this changes
@@ -215,7 +215,7 @@ dependencyManagement {
     }
 
     //CVE-2021-22112
-    dependencySet(group: 'org.springframework.security', version: '5.5.2') {
+    dependencySet(group: 'org.springframework.security', version: '5.6.1') {
       entry 'spring-security-crypto'
     }
 
@@ -264,7 +264,7 @@ dependencies {
   implementation group: 'org.springframework.cloud', name: 'spring-cloud-starter-openfeign', version: '3.0.5'
   implementation group: 'org.springframework.cloud', name: 'spring-cloud-openfeign-core', version: '3.0.5'
 
-  implementation group: 'org.apache.qpid', name: 'qpid-jms-client', version: '1.2.0'
+  implementation group: 'org.apache.qpid', name: 'qpid-jms-client', version: '1.5.0'
   implementation group: 'io.github.openfeign', name: 'feign-jackson', version: versions.feignVersion
   implementation group: 'io.springfox', name: 'springfox-swagger2', version: versions.springfoxSwagger
 
