@@ -197,7 +197,7 @@ dependencyManagement {
     }
 
     // CVE-2019-16869 - brought in by qpid-jms-client
-    dependencySet(group: 'io.netty', version: '4.1.69.Final') {
+    dependencySet(group: 'io.netty', version: '4.1.73.Final') {
       entry 'netty-handler'
       entry 'netty-transport-native-epoll'
       entry 'netty-transport-native-kqueue'
@@ -290,8 +290,8 @@ dependencies {
   testImplementation group: 'org.junit.jupiter', name: 'junit-jupiter-api', version: versions.junit
   testCompile group: 'org.junit.jupiter', name: 'junit-jupiter-params', version: versions.junit
   testRuntimeOnly group: 'org.junit.jupiter', name: 'junit-jupiter-engine', version: versions.junit
-
-  testCompile group: 'com.github.hmcts', name: 'sscs-common', version: '4.6.14'
+  
+  testCompile group: 'com.github.hmcts', name: 'sscs-common', version: '4.6.36'
   testCompile 'com.github.hmcts:fortify-client:1.2.1:all'
 
   testCompile group: 'org.springframework.boot', name: 'spring-boot-starter-test'
