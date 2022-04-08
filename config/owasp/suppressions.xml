@@ -7,13 +7,12 @@
     <packageUrl regex="true">^pkg:maven/org\.springframework\.security/spring\-security\-crypto@.*$</packageUrl>
     <cve>CVE-2018-1258</cve>
   </suppress>
-  <suppress until="2022-05-02">
+  <suppress until="2022-07-01">
     <notes><![CDATA[
    file name: spring-core-5.2.15.RELEASE.jar
    ]]></notes>
     <packageUrl regex="true">^pkg:maven/org\.springframework/spring\-core@.*$</packageUrl>
     <cve>CVE-2021-22096</cve>
-    <cve>CVE-2022-22965</cve>
   </suppress>
   <suppress until="2022-04-15">
     <notes><![CDATA[
@@ -44,5 +43,11 @@
    file name: jackson-databind-2.11.3.jar
    ]]></notes>
     <cve>CVE-2020-36518</cve>
+  </suppress>
+  <suppress until="2022-05-02">
+    <notes><![CDATA[
+   file name: spring-beans-5.2.15.RELEASE.jar
+   ]]></notes>
+    <cve>CVE-2022-22965</cve>
   </suppress>
 </suppressions>
