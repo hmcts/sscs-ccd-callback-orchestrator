@@ -191,13 +191,13 @@ dependencyManagement {
 
         // solves CVE-2019-12086
     // remove once spring manager incorporates this changes
-    dependencySet(group: 'com.fasterxml.jackson.core', version: '2.11.3') {
+    dependencySet(group: 'com.fasterxml.jackson.core', version: '2.13.2.2') {
       entry 'jackson-core'
       entry 'jackson-databind'
     }
 
     // CVE-2019-16869 - brought in by qpid-jms-client
-    dependencySet(group: 'io.netty', version: '4.1.69.Final') {
+    dependencySet(group: 'io.netty', version: '4.1.76.Final') {
       entry 'netty-handler'
       entry 'netty-transport-native-epoll'
       entry 'netty-transport-native-kqueue'
@@ -210,8 +210,8 @@ dependencyManagement {
       entry 'netty-common'
     }
 
-    // CVE-2019-0232, CVE-2019-0199 - command line injections on windows
-    dependencySet(group: 'org.apache.tomcat.embed', version: '9.0.54') {
+    // CVE-2022-23181 - CVE-2022-23181
+    dependencySet(group: 'org.apache.tomcat.embed', version: '10.0.2') {
       entry 'tomcat-embed-core'
       entry 'tomcat-embed-el'
       entry 'tomcat-embed-websocket'
@@ -227,7 +227,7 @@ dependencyManagement {
     }
 
     //CVE-2021-22118
-    dependencySet(group: 'org.springframework', version: '5.2.20.RELEASE') {
+    dependencySet(group: 'org.springframework', version: '5.2.21.RELEASE') {
       entry 'spring-aop'
       entry 'spring-aspects'
       entry 'spring-beans'
@@ -277,7 +277,7 @@ dependencies {
   compile group: 'com.github.hmcts', name: 'java-logging', version: versions.reformLogging
   compile group: 'uk.gov.hmcts.reform', name: 'service-auth-provider-client', version: '4.0.0'
 
-  compile group: 'com.microsoft.azure', name: 'applicationinsights-logging-logback', version: '2.6.3'
+  compile group: 'com.microsoft.azure', name: 'applicationinsights-logging-logback', version: '2.6.4'
   compile group: 'com.microsoft.azure', name: 'applicationinsights-spring-boot-starter', version: '2.6.3'
 
   compile group: 'org.pitest', name: 'pitest', version: versions.pitest

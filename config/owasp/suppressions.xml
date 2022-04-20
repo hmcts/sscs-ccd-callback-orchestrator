@@ -2,46 +2,45 @@
 <suppressions xmlns="https://jeremylong.github.io/DependencyCheck/dependency-suppression.1.3.xsd">
   <suppress>
     <notes><![CDATA[
- CVE-2018-1258: we do not use Spring Method Security, so this does not affect us
+          logback-classic-1.2.3.jar
  ]]></notes>
-    <packageUrl regex="true">^pkg:maven/org\.springframework\.security/spring\-security\-crypto@.*$</packageUrl>
-    <cve>CVE-2018-1258</cve>
-  </suppress>
-  <suppress until="2022-07-01">
-    <notes><![CDATA[
-   file name: spring-core-5.2.15.RELEASE.jar
-   ]]></notes>
-    <packageUrl regex="true">^pkg:maven/org\.springframework/spring\-core@.*$</packageUrl>
-    <cve>CVE-2021-22096</cve>
-  </suppress>
-  <suppress until="2022-04-15">
-    <notes><![CDATA[
-   file name: logback-classic-1.2.3.jar
-   ]]></notes>
+    <packageUrl regex="true">^pkg:maven/ch.qos.logback/logback-classic@.*$</packageUrl>
     <cve>CVE-2021-42550</cve>
   </suppress>
-  <suppress until="2022-04-15">
+  <suppress>
     <notes><![CDATA[
-   file name: netty-buffer-4.1.69.Final.jar
-   ]]></notes>
-    <cve>CVE-2021-43797</cve>
+          logback-core-1.2.3.jar
+ ]]></notes>
+    <packageUrl regex="true">^pkg:maven/ch.qos.logback/logback-core@.*$</packageUrl>
+    <cve>CVE-2021-42550</cve>
   </suppress>
-  <suppress until="2022-04-15">
+  <suppress>
     <notes><![CDATA[
-   file name: spring-core-5.2.15.RELEASE.jar
-   ]]></notes>
-    <cve>CVE-2021-22060</cve>
+        spring-core-5.2.21.RELEASE.jar
+ ]]></notes>
+    <packageUrl regex="true">^pkg:maven/org.springframework/spring-core@.*$</packageUrl>
+    <cve>CVE-2016-1000027</cve>
   </suppress>
-  <suppress until="2022-04-15">
+  <suppress>
     <notes><![CDATA[
-   file name: tomcat-embed-core-9.0.54.jar
-   ]]></notes>
+        tomcat-embed-core-10.0.2.jar
+ ]]></notes>
+    <packageUrl regex="true">^pkg:maven/org.apache.tomcat.embed/tomcat-embed-core@.*$</packageUrl>
+    <cve>CVE-2021-30640</cve>
+    <cve>CVE-2021-33037</cve>
+    <cve>CVE-2021-41079</cve>
+    <cve>CVE-2021-42340</cve>
     <cve>CVE-2022-23181</cve>
   </suppress>
-  <suppress until="2022-04-21">
+  <suppress>
     <notes><![CDATA[
-   file name: jackson-databind-2.11.3.jar
-   ]]></notes>
-    <cve>CVE-2020-36518</cve>
+        tomcat-embed-websocket-10.0.2.jar
+ ]]></notes>
+    <packageUrl regex="true">^pkg:maven/org.apache.tomcat.embed/tomcat-embed-websocket@.*$</packageUrl>
+    <cve>CVE-2021-30640</cve>
+    <cve>CVE-2021-33037</cve>
+    <cve>CVE-2021-41079</cve>
+    <cve>CVE-2021-42340</cve>
+    <cve>CVE-2022-23181</cve>
   </suppress>
 </suppressions>
