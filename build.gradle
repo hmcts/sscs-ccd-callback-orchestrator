@@ -178,6 +178,18 @@ def versions = [
   pitest: '1.4.2',
   gradlePitest: '1.3.0',
   sonarPitest: '0.5',
+  springRetry: '1.3.1',
+  springCloudStarterNetflixHystrix: '2.2.9.RELEASE',
+  qpidJmsClient: '1.5.0',
+  propertiesVolumeSpringBootStarter: '0.1.0',
+  serviceAuthProviderClient: '4.0.0',
+  appInsightLoggingLogback: '2.6.4',
+  appInsightsSpringBootStarter: '2.6.3',
+  sscsCommon: '4.8.4',
+  mockitoCore: '4.0.0',
+  qpidBrokerCore: '8.0.6',
+  qpidBrokerPluginAmqpProtocol: '8.0.6',
+  qpidBrokerPluginMemoryStore: '8.0.6'
 ]
 
 dependencyManagement {
@@ -197,7 +209,7 @@ dependencyManagement {
     }
 
     // CVE-2019-16869 - brought in by qpid-jms-client
-    dependencySet(group: 'io.netty', version: '4.1.69.Final') {
+    dependencySet(group: 'io.netty', version: '4.1.76.Final') {
       entry 'netty-handler'
       entry 'netty-transport-native-epoll'
       entry 'netty-transport-native-kqueue'
@@ -210,8 +222,8 @@ dependencyManagement {
       entry 'netty-common'
     }
 
-    // CVE-2019-0232, CVE-2019-0199 - command line injections on windows
-    dependencySet(group: 'org.apache.tomcat.embed', version: '9.0.54') {
+    // CVE-2022-23181 - CVE-2022-23181
+    dependencySet(group: 'org.apache.tomcat.embed', version: '9.0.62') {
       entry 'tomcat-embed-core'
       entry 'tomcat-embed-el'
       entry 'tomcat-embed-websocket'
@@ -227,7 +239,7 @@ dependencyManagement {
     }
 
     //CVE-2021-22118
-    dependencySet(group: 'org.springframework', version: '5.2.20.RELEASE') {
+    dependencySet(group: 'org.springframework', version: '5.2.21.RELEASE') {
       entry 'spring-aop'
       entry 'spring-aspects'
       entry 'spring-beans'
@@ -266,19 +278,19 @@ dependencies {
 
   compile group: 'org.springframework', name: 'spring-jms'
 
-  compile group: 'org.springframework.retry', name: 'spring-retry', version: '1.3.1'
-  compile group: 'org.springframework.cloud', name: 'spring-cloud-starter-netflix-hystrix', version: '2.2.9.RELEASE'
+  compile group: 'org.springframework.retry', name: 'spring-retry', version: versions.springRetry
+  compile group: 'org.springframework.cloud', name: 'spring-cloud-starter-netflix-hystrix', version: versions.springCloudStarterNetflixHystrix
 
-  compile group: 'org.apache.qpid', name: 'qpid-jms-client', version: '1.5.0'
+  compile group: 'org.apache.qpid', name: 'qpid-jms-client', version: versions.qpidJmsClient
   compile group: 'io.github.openfeign', name: 'feign-jackson', version: versions.feignVersion
   compile group: 'io.springfox', name: 'springfox-swagger2', version: versions.springfoxSwagger
 
-  compile group: 'uk.gov.hmcts.reform', name: 'properties-volume-spring-boot-starter', version:'0.1.0'
+  compile group: 'uk.gov.hmcts.reform', name: 'properties-volume-spring-boot-starter', version: versions.propertiesVolumeSpringBootStarter
   compile group: 'com.github.hmcts', name: 'java-logging', version: versions.reformLogging
-  compile group: 'uk.gov.hmcts.reform', name: 'service-auth-provider-client', version: '4.0.0'
+  compile group: 'uk.gov.hmcts.reform', name: 'service-auth-provider-client', version: versions.serviceAuthProviderClient
 
-  compile group: 'com.microsoft.azure', name: 'applicationinsights-logging-logback', version: '2.6.3'
-  compile group: 'com.microsoft.azure', name: 'applicationinsights-spring-boot-starter', version: '2.6.3'
+  compile group: 'com.microsoft.azure', name: 'applicationinsights-logging-logback', version: versions.appInsightLoggingLogback
+  compile group: 'com.microsoft.azure', name: 'applicationinsights-spring-boot-starter', version: versions.appInsightsSpringBootStarter
 
   compile group: 'org.pitest', name: 'pitest', version: versions.pitest
   compile group:'info.solidsoft.gradle.pitest', name: 'gradle-pitest-plugin', version: versions.gradlePitest
@@ -295,12 +307,11 @@ dependencies {
   testCompile 'com.github.hmcts:fortify-client:1.2.1:all'
 
   testCompile group: 'org.springframework.boot', name: 'spring-boot-starter-test'
-  testCompile group: 'org.mockito', name: 'mockito-core', version: '4.0.0'
+  testCompile group: 'org.mockito', name: 'mockito-core', version: versions.mockitoCore
   testCompile 'pl.pragmatists:JUnitParams:1.1.1'
-  testCompile group: 'org.apache.qpid', name: 'qpid-broker-core', version: '8.0.6'
-  testCompile group: 'org.apache.qpid', name: 'qpid-broker-plugins-amqp-1-0-protocol', version: '8.0.6'
-  testCompile group: 'org.apache.qpid', name: 'qpid-broker-plugins-memory-store', version: '8.0.6'
-
+  testCompile group: 'org.apache.qpid', name: 'qpid-broker-core', version: versions.qpidBrokerCore
+  testCompile group: 'org.apache.qpid', name: 'qpid-broker-plugins-amqp-1-0-protocol', version: versions.qpidBrokerPluginAmqpProtocol
+  testCompile group: 'org.apache.qpid', name: 'qpid-broker-plugins-memory-store', version: versions.qpidBrokerPluginMemoryStore
 
   integrationTestCompile sourceSets.main.runtimeClasspath
   integrationTestCompile sourceSets.test.runtimeClasspath
