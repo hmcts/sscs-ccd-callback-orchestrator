@@ -183,8 +183,7 @@ def versions = [
   qpidJmsClient: '1.5.0',
   propertiesVolumeSpringBootStarter: '0.1.0',
   serviceAuthProviderClient: '4.0.0',
-  appInsightLoggingLogback: '2.6.4',
-  appInsightsSpringBootStarter: '2.6.3',
+  appInsights: '2.6.3',
   sscsCommon: '4.8.4',
   mockitoCore: '4.0.0',
   qpidBrokerCore: '8.0.6',
@@ -289,8 +288,8 @@ dependencies {
   compile group: 'com.github.hmcts', name: 'java-logging', version: versions.reformLogging
   compile group: 'uk.gov.hmcts.reform', name: 'service-auth-provider-client', version: versions.serviceAuthProviderClient
 
-  compile group: 'com.microsoft.azure', name: 'applicationinsights-logging-logback', version: versions.appInsightLoggingLogback
-  compile group: 'com.microsoft.azure', name: 'applicationinsights-spring-boot-starter', version: versions.appInsightsSpringBootStarter
+  compile group: 'com.microsoft.azure', name: 'applicationinsights-logging-logback', version: versions.appInsights
+  compile group: 'com.microsoft.azure', name: 'applicationinsights-spring-boot-starter', version: versions.appInsights
 
   compile group: 'org.pitest', name: 'pitest', version: versions.pitest
   compile group:'info.solidsoft.gradle.pitest', name: 'gradle-pitest-plugin', version: versions.gradlePitest
