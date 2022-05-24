@@ -187,7 +187,7 @@ def versions = [
   propertiesVolumeSpringBootStarter: '0.1.0',
   serviceAuthProviderClient: '4.0.0',
   appInsights: '2.6.3',
-  sscsCommon: '4.9.3-RC-SSCS-10245',
+  sscsCommon: '4.9.4-RC-SSCS-10245',
   mockitoCore: '4.0.0',
   qpidBrokerCore: '8.0.6',
   qpidBrokerPluginAmqpProtocol: '8.0.6',
@@ -225,7 +225,7 @@ dependencyManagement {
     }
 
     // CVE-2022-23181 - CVE-2022-23181
-    dependencySet(group: 'org.apache.tomcat.embed', version: '9.0.62') {
+    dependencySet(group: 'org.apache.tomcat.embed', version: '9.0.63') {
       entry 'tomcat-embed-core'
       entry 'tomcat-embed-el'
       entry 'tomcat-embed-websocket'
@@ -241,7 +241,7 @@ dependencyManagement {
     }
 
     //CVE-2021-22118
-    dependencySet(group: 'org.springframework', version: '5.2.21.RELEASE') {
+    dependencySet(group: 'org.springframework', version: '5.2.22.RELEASE') {
       entry 'spring-aop'
       entry 'spring-aspects'
       entry 'spring-beans'
