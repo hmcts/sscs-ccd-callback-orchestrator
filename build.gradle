@@ -187,7 +187,7 @@ def versions = [
   propertiesVolumeSpringBootStarter: '0.1.0',
   serviceAuthProviderClient: '4.0.0',
   appInsights: '2.6.3',
-  sscsCommon: '4.9.4',
+  sscsCommon: '4.9.5-RC-SSCS-10561',
   mockitoCore: '4.0.0',
   qpidBrokerCore: '8.0.6',
   qpidBrokerPluginAmqpProtocol: '8.0.6',
@@ -236,12 +236,12 @@ dependencyManagement {
     }
 
     //CVE-2021-22112
-    dependencySet(group: 'org.springframework.security', version: '5.6.1') {
+    dependencySet(group: 'org.springframework.security', version: '5.7.1') {
       entry 'spring-security-crypto'
     }
 
     //CVE-2021-22118
-    dependencySet(group: 'org.springframework', version: '5.2.21.RELEASE') {
+    dependencySet(group: 'org.springframework', version: '5.2.22.RELEASE') {
       entry 'spring-aop'
       entry 'spring-aspects'
       entry 'spring-beans'
