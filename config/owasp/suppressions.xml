@@ -1,27 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <suppressions xmlns="https://jeremylong.github.io/DependencyCheck/dependency-suppression.1.3.xsd">
-  <suppress until="2022-06-25">
+  <suppress until="2022-08-01">
     <notes><![CDATA[
           logback-classic-1.2.3.jar
  ]]></notes>
     <packageUrl regex="true">^pkg:maven/ch.qos.logback/logback-classic@.*$</packageUrl>
     <cve>CVE-2021-42550</cve>
   </suppress>
-  <suppress until="2022-06-25">
+  <suppress until="2022-08-01">
     <notes><![CDATA[
           logback-core-1.2.3.jar
  ]]></notes>
     <packageUrl regex="true">^pkg:maven/ch.qos.logback/logback-core@.*$</packageUrl>
     <cve>CVE-2021-42550</cve>
   </suppress>
-  <suppress until="2022-06-25">
+  <suppress until="2022-08-01">
     <notes><![CDATA[
         spring-core-5.2.21.RELEASE.jar
  ]]></notes>
     <packageUrl regex="true">^pkg:maven/org.springframework/spring-core@.*$</packageUrl>
     <cve>CVE-2016-1000027</cve>
   </suppress>
-  <suppress until="2022-06-25">
+  <suppress until="2022-08-01">
     <notes><![CDATA[
         tomcat-embed-core-10.0.2.jar
  ]]></notes>
@@ -31,8 +31,9 @@
     <cve>CVE-2021-41079</cve>
     <cve>CVE-2021-42340</cve>
     <cve>CVE-2022-23181</cve>
+    <cve>CVE-2022-34305</cve>
   </suppress>
-  <suppress until="2022-06-25">
+  <suppress until="2022-08-01">
     <notes><![CDATA[
         tomcat-embed-websocket-10.0.2.jar
  ]]></notes>
@@ -42,8 +43,9 @@
     <cve>CVE-2021-41079</cve>
     <cve>CVE-2021-42340</cve>
     <cve>CVE-2022-23181</cve>
+    <cve>CVE-2022-34305</cve>
   </suppress>
-  <suppress until="2022-06-25">
+  <suppress until="2022-08-01">
     <notes><![CDATA[
         jackson-databind-2.11.3.jar
  ]]></notes>
@@ -57,28 +59,28 @@
     <packageUrl regex="true">^pkg:maven/io\.netty/netty.*@4\.1\.76\.Final$</packageUrl>
     <cve>CVE-2022-24823</cve>
   </suppress>
-  <suppress until="2022-06-25">
+  <suppress until="2022-08-01">
     <notes><![CDATA[
     file name: spring-security-crypto-5.7.1.jar
     ]]></notes>
     <packageUrl regex="true">^pkg:maven/org\.springframework\.security/spring-security-crypto@.*$</packageUrl>
     <cve>CVE-2020-5408</cve>
   </suppress>
-  <suppress until="2022-06-25">
+  <suppress until="2022-08-01">
     <notes><![CDATA[
     file name: spring-cloud-openfeign-core-2.2.9.RELEASE.jar
     ]]></notes>
     <packageUrl regex="true">^pkg:maven/org\.springframework\.cloud/spring-cloud-openfeign-core@.*$</packageUrl>
     <cve>CVE-2021-22044</cve>
   </suppress>
-  <suppress until="2022-06-25">
+  <suppress until="2022-08-01">
     <notes><![CDATA[
     file name: spring-web-5.2.22.RELEASE.jar
     ]]></notes>
     <packageUrl regex="true">^pkg:maven/org\.springframework/spring-web@.*$</packageUrl>
     <cve>CVE-2016-1000027</cve>
   </suppress>
-  <suppress until="2022-06-25">
+  <suppress until="2022-08-01">
     <notes><![CDATA[
     file name: bcprov-jdk15on-1.64.jar
     ]]></notes>
