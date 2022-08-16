@@ -187,7 +187,7 @@ def versions = [
   propertiesVolumeSpringBootStarter: '0.1.0',
   serviceAuthProviderClient: '4.0.0',
   appInsights: '2.6.3',
-  sscsCommon: '4.14.1',
+  sscsCommon: '4.14.2',
   mockitoCore: '4.0.0',
   qpidBrokerCore: '8.0.6',
   qpidBrokerPluginAmqpProtocol: '8.0.6',
