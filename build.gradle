@@ -188,6 +188,7 @@ def versions = [
   serviceAuthProviderClient: '4.0.0',
   appInsights: '2.6.3',
   sscsCommon: '4.14.4-RC-SSCS-9874-4',
+  sscsCommon: '4.14.3',
   mockitoCore: '4.0.0',
   qpidBrokerCore: '8.0.6',
   qpidBrokerPluginAmqpProtocol: '8.0.6',
