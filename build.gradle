@@ -302,8 +302,8 @@ dependencies {
   compile group:'info.solidsoft.gradle.pitest', name: 'gradle-pitest-plugin', version: versions.gradlePitest
   compile group:'org.codehaus.sonar-plugins', name:'sonar-pitest-plugin', version: versions.sonarPitest
 
-  compileOnly 'org.projectlombok:lombok:1.18.22'
-  annotationProcessor "org.projectlombok:lombok:1.18.20"
+  compileOnly 'org.projectlombok:lombok:1.18.24'
+  annotationProcessor "org.projectlombok:lombok:1.18.24"
 
   testImplementation group: 'org.junit.jupiter', name: 'junit-jupiter-api', version: versions.junit
   testCompile group: 'org.junit.jupiter', name: 'junit-jupiter-params', version: versions.junit
