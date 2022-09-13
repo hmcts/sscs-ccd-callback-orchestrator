@@ -1,59 +1,67 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <suppressions xmlns="https://jeremylong.github.io/DependencyCheck/dependency-suppression.1.3.xsd">
-  <suppress until="2022-09-01">
+  <suppress until="2022-10-01">
     <notes><![CDATA[
           logback-classic-1.2.3.jar
  ]]></notes>
     <packageUrl regex="true">^pkg:maven/ch.qos.logback/logback-classic@.*$</packageUrl>
     <cve>CVE-2021-42550</cve>
   </suppress>
-  <suppress until="2022-09-01">
+  <suppress until="2022-10-01">
     <notes><![CDATA[
           logback-core-1.2.3.jar
  ]]></notes>
     <packageUrl regex="true">^pkg:maven/ch.qos.logback/logback-core@.*$</packageUrl>
     <cve>CVE-2021-42550</cve>
   </suppress>
-  <suppress until="2022-09-01">
+  <suppress until="2022-10-01">
     <notes><![CDATA[
         spring-core-5.2.21.RELEASE.jar
  ]]></notes>
     <packageUrl regex="true">^pkg:maven/org.springframework/spring-core@.*$</packageUrl>
     <cve>CVE-2016-1000027</cve>
   </suppress>
-  <suppress until="2022-09-01">
+  <suppress until="2022-10-01">
     <notes><![CDATA[
         jackson-databind-2.11.3.jar
  ]]></notes>
     <packageUrl regex="true">^pkg:maven/com.fasterxml.jackson.core/jackson-databind@.*$</packageUrl>
     <cve>CVE-2020-36518</cve>
   </suppress>
-  <suppress until="2022-09-01">
+  <suppress until="2022-10-01">
     <notes><![CDATA[
     file name: spring-security-crypto-5.7.1.jar
     ]]></notes>
     <packageUrl regex="true">^pkg:maven/org\.springframework\.security/spring-security-crypto@.*$</packageUrl>
     <cve>CVE-2020-5408</cve>
   </suppress>
-  <suppress until="2022-09-01">
+  <suppress until="2022-10-01">
     <notes><![CDATA[
     file name: spring-cloud-openfeign-core-2.2.9.RELEASE.jar
     ]]></notes>
     <packageUrl regex="true">^pkg:maven/org\.springframework\.cloud/spring-cloud-openfeign-core@.*$</packageUrl>
     <cve>CVE-2021-22044</cve>
   </suppress>
-  <suppress until="2022-09-01">
+  <suppress until="2022-10-01">
     <notes><![CDATA[
     file name: spring-web-5.2.22.RELEASE.jar
     ]]></notes>
     <packageUrl regex="true">^pkg:maven/org\.springframework/spring-web@.*$</packageUrl>
     <cve>CVE-2016-1000027</cve>
   </suppress>
-  <suppress until="2022-09-01">
+  <suppress until="2022-10-01">
     <notes><![CDATA[
     file name: bcprov-jdk15on-1.64.jar
     ]]></notes>
     <packageUrl regex="true">^pkg:maven/org\.bouncycastle/bcprov-jdk15on@.*$</packageUrl>
     <cve>CVE-2020-0187</cve>
+  </suppress>
+  <suppress until="2022-10-01">
+    <notes><![CDATA[
+    snakeyaml:1.31
+    https://nvd.nist.gov/vuln/detail/CVE-2022-38752 - Undergoing Analysis - not yet confirmed an actual vulnerability
+     ]]></notes>
+    <packageUrl regex="true">^pkg:maven/org.yaml/snakeyaml@1\.31$</packageUrl>
+    <vulnerabilityName>CVE-2022-38752</vulnerabilityName>
   </suppress>
 </suppressions>
