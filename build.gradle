@@ -46,6 +46,8 @@ sourceSets {
   }
 }
 
+tasks.withType(Copy).all { duplicatesStrategy 'warn' }
+
 tasks.withType(JavaCompile) {
   options.compilerArgs << "-Xlint:unchecked" << "-Werror"
 }
