@@ -8,16 +8,28 @@ java:
     sscs:
       resourceGroup: sscs
       secrets:
-        - idam-api
-        - idam-oauth-user
-        - idam-redirect
-        - idam-sscs-systemupdate-user
-        - idam-sscs-systemupdate-password
-        - idam-sscs-oauth2-client-secret
-        - sscs-s2s-secret
-        - s2s-micro
-        - sscs-asb-primary-send-and-listen-shared-access-key
-        - AppInsightsInstrumentationKey
+        - name: idam-api
+          alias: IDAM_URL
+        - name: idam-oauth-user
+          alias: IDAM_OAUTH2_CLIENT_ID
+        - name: idam-redirect
+          alias: IDAM_OAUTH2_REDIRECT_URL
+        - name: idam-sscs-systemupdate-user
+          alias: IDAM_SSCS_SYSTEMUPDATE_USER
+        - name: idam-sscs-systemupdate-password
+          alias: IDAM_SSCS_SYSTEMUPDATE_PASSWORD
+        - name: idam-sscs-oauth2-client-secret
+          alias: IDAM_OAUTH2_CLIENT_SECRET
+        - name: sscs-s2s-secret
+          alias: IDAM_S2S_AUTH_TOTP_SECRET
+        - name: idam-s2s-api
+          alias: IDAM_S2S_AUTH
+        - name: s2s-micro
+          alias: IDAM_S2S_AUTH_MICROSERVICE
+        - name: sscs-asb-primary-send-and-listen-shared-access-key
+          alias: AMQP_PASSWORD
+        - name: AppInsightsInstrumentationKey
+          alias: azure.application-insights.instrumentation-key
   environment:
     REFORM_TEAM: sscs
     REFORM_SERVICE_NAME: sscs-ccd-callback-orchestrator

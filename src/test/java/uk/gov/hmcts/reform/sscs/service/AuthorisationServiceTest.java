@@ -60,7 +60,7 @@ public class AuthorisationServiceTest {
         public static final long serialVersionUID = 7309337492649637392L;
 
         CustomFeignException(int status, String message) {
-            super(status, message, message.getBytes());
+            super(status, message);
         }
     }
 
