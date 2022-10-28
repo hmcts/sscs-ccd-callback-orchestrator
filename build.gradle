@@ -215,7 +215,7 @@ dependencies {
   implementation group: 'com.microsoft.azure', name: 'applicationinsights-spring-boot-starter', version: '2.6.4'
 
   implementation group: 'org.pitest', name: 'pitest', version: '1.9.9'
-  implementation group:'org.codehaus.sonar-plugins', name:'sonar-pitest-plugin', version: '0.9.1'
+  implementation group: 'org.codehaus.sonar-plugins', name:'sonar-pitest-plugin', version: '0.5'
 
   implementation group: 'org.projectlombok', name:'lombok', version: '1.18.24'
   annotationProcessor group: 'org.projectlombok', name:'lombok', version: '1.18.24'
