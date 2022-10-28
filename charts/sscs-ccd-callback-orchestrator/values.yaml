@@ -26,7 +26,7 @@ java:
           alias: IDAM_S2S_AUTH
         - name: s2s-micro
           alias: IDAM_S2S_AUTH_MICROSERVICE
-        - name: sscs-asb-primary-send-and-listen-shared-access-key
+        - name: evidence-share-topic-shared-access-key
           alias: AMQP_PASSWORD
         - name: AppInsightsInstrumentationKey
           alias: azure.application-insights.instrumentation-key
