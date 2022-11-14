@@ -12,8 +12,6 @@ management:
 spring:
   application:
     name: Ccd Callback Orchestrator
-    config:
-      import: optional:configtree:/mnt/secrets/sscs/
 
 amqp:
   host: ${AMQP_HOST:localhost}
