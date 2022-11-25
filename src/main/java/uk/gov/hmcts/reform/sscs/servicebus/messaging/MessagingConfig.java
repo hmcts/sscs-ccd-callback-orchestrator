@@ -35,6 +35,7 @@ public class MessagingConfig {
                                                   @Value("${amqp.password}") final String password,
                                                   @Autowired final String jmsUrlString,
                                                   @Autowired(required = false) final SSLContext jmsSslContext) {
+        log.info("Name {} user {} p {}", clientId, username, password);
         JmsConnectionFactory jmsConnectionFactory = new JmsConnectionFactory(jmsUrlString);
         jmsConnectionFactory.setUsername(username);
         jmsConnectionFactory.setPassword(password);
