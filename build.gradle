@@ -209,18 +209,18 @@ dependencyManagement {
     dependency group: 'org.apache.logging.log4j', name: 'log4j-api', version: '2.19.0'
     dependency group: 'org.apache.logging.log4j', name: 'log4j-to-slf4j', version: '2.19.0'
 
-    // CVE-2019-16869 - brought in by qpid-jms-client
-    dependencySet(group: 'io.netty', version: '4.1.79.Final') {
-      entry 'netty-handler'
-      entry 'netty-transport-native-epoll'
-      entry 'netty-transport-native-kqueue'
-      entry 'netty-codec-http'
-      entry 'netty-codec'
-      entry 'netty-transport-native-unix-common'
-      entry 'netty-transport'
-      entry 'netty-buffer'
-      entry 'netty-resolver'
-      entry 'netty-common'
+      // CVE-2022-41881, CVE-2022-41915
+      dependencySet(group: 'io.netty', version: '4.1.86.Final') {
+        entry 'netty-buffer'
+        entry 'netty-common'
+        entry 'netty-codec'
+        entry 'netty-codec-http'
+        entry 'netty-handler'
+        entry 'netty-resolver'
+        entry 'netty-transport'
+        entry 'netty-transport-native-epoll'
+        entry 'netty-transport-native-kqueue'
+        entry 'netty-transport-native-unix-common'
     }
 
     // CVE-2022-23181 - CVE-2022-23181
