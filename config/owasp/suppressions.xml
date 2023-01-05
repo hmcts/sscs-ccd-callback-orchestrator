@@ -59,4 +59,13 @@
     <packageUrl regex="true">^pkg:maven/org\.apache\.qpid/qpid\-jms\-client@.*$</packageUrl>
     <cve>CVE-2016-3094</cve>
   </suppress>
+  <suppress until="2023-02-08">
+    <notes><![CDATA[
+      From qpid-jms-client dependencies, no new release yet
+   ]]></notes>
+    <cve>CVE-2022-41881</cve>
+    <cve>CVE-2022-41915</cve>
+  </suppress>
+
+
 </suppressions>
