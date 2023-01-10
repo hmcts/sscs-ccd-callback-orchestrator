@@ -6,7 +6,6 @@ java:
   ingressHost: sscs-ccd-callback-orchestrator-{{ .Values.global.environment }}.service.core-compute-{{ .Values.global.environment }}.internal
   keyVaults:
     sscs:
-      resourceGroup: sscs
       secrets:
         - name: idam-api
           alias: IDAM_URL
