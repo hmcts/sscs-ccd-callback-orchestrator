@@ -10,54 +10,33 @@
     <cve>CVE-2018-10237</cve>
     <cve>CVE-2020-8908</cve>
   </suppress>
-  <suppress until="2023-01-08">
+  <suppress until="2023-02-08">
     <notes><![CDATA[
    file name: spring-core-5.2.22.RELEASE.jar
    ]]></notes>
     <packageUrl regex="true">^pkg:maven/org\.springframework/spring\-core@.*$</packageUrl>
     <cve>CVE-2016-1000027</cve>
   </suppress>
-  <suppress until="2023-01-08">
+  <suppress until = "2023-02-01">
     <notes><![CDATA[
-   file name: commons-codec-1.14.jar
+     these common libraries are being mistaken as Apache Commons Net
    ]]></notes>
-    <packageUrl regex="true">^pkg:maven/commons\-codec/commons\-codec@.*$</packageUrl>
+    <packageUrl regex="true">^pkg:maven\/commons\-(?!net)\w+\/commons\-(?!net)\w+@.*$</packageUrl>
     <cve>CVE-2021-37533</cve>
   </suppress>
-  <suppress until="2023-01-08">
-    <notes><![CDATA[
-   file name: commons-configuration-1.8.jar
-   ]]></notes>
-    <packageUrl regex="true">^pkg:maven/commons\-configuration/commons\-configuration@.*$</packageUrl>
-    <cve>CVE-2021-37533</cve>
-  </suppress>
-  <suppress until="2023-01-08">
-    <notes><![CDATA[
-   file name: commons-fileupload-1.4.jar
-   ]]></notes>
-    <packageUrl regex="true">^pkg:maven/commons\-fileupload/commons\-fileupload@.*$</packageUrl>
-    <cve>CVE-2021-37533</cve>
-  </suppress>
-  <suppress until="2023-01-08">
-    <notes><![CDATA[
-   file name: commons-io-2.11.0.jar
-   ]]></notes>
-    <packageUrl regex="true">^pkg:maven/commons\-io/commons\-io@.*$</packageUrl>
-    <cve>CVE-2021-37533</cve>
-  </suppress>
-  <suppress until="2023-01-08">
-    <notes><![CDATA[
-   file name: commons-lang-2.6.jar
-   ]]></notes>
-    <packageUrl regex="true">^pkg:maven/commons\-lang/commons\-lang@.*$</packageUrl>
-    <cve>CVE-2021-37533</cve>
-  </suppress>
-  <suppress until="2023-01-08">
+  <suppress until="2023-02-08">
     <notes><![CDATA[
    file name: qpid-jms-client-1.5.0.jar
    ]]></notes>
     <packageUrl regex="true">^pkg:maven/org\.apache\.qpid/qpid\-jms\-client@.*$</packageUrl>
     <cve>CVE-2016-3094</cve>
+  </suppress>
+  <suppress until = "2023-02-01">
+    <notes><![CDATA[
+     LatencyUtils is being mistaken as utils_project:utils
+   ]]></notes>
+    <packageUrl regex="true">^pkg:maven/org\.latencyutils/LatencyUtils@.*$</packageUrl>
+    <cve>CVE-2021-4277</cve>
   </suppress>
   <suppress until="2023-02-08">
     <notes><![CDATA[
@@ -66,6 +45,13 @@
     <cve>CVE-2022-41881</cve>
     <cve>CVE-2022-41915</cve>
   </suppress>
-
+ <suppress  until = "2023-02-01">
+    <notes><![CDATA[
+   file name: snakeyaml-1.33.jar
+   ]]></notes>
+    <packageUrl regex="true">^pkg:maven/org\.yaml/snakeyaml@.*$</packageUrl>
+    <cve>CVE-2022-3064</cve>
+    <cve>CVE-2021-4235</cve>
+  </suppress>
 
 </suppressions>
