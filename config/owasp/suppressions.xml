@@ -10,4 +10,11 @@
     <cve>CVE-2018-10237</cve>
     <cve>CVE-2020-8908</cve>
   </suppress>
+  <suppress until="2023-02-08">
+    <notes><![CDATA[
+   file name: qpid-jms-client-1.5.0.jar
+   ]]></notes>
+    <packageUrl regex="true">^pkg:maven/org\.apache\.qpid/qpid\-jms\-client@.*$</packageUrl>
+    <cve>CVE-2016-3094</cve>
+  </suppress>
 </suppressions>
