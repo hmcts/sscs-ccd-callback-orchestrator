@@ -77,12 +77,10 @@
     <packageUrl regex="true">^pkg:maven/org\.bouncycastle/bcprov\-jdk15on@.*$</packageUrl>
     <vulnerabilityName>CVE-2020-15522</vulnerabilityName>
   </suppress>
-  <suppress until = "2023-03-08">
-    <notes><![CDATA[
-   file name: spring-cloud-openfeign-core-3.0.2.jar
-   ]]></notes>
+  <suppress until="2023-03-08">
+    <notes><![CDATA[file name: spring-cloud-openfeign-core-2.2.9.RELEASE.jar]]></notes>
     <packageUrl regex="true">^pkg:maven/org\.springframework\.cloud/spring\-cloud\-openfeign\-core@.*$</packageUrl>
-    <vulnerabilityName>CVE-2021-22044</vulnerabilityName>
+    <cve>CVE-2021-22044</cve>
   </suppress>
   <suppress until="2023-03-08">
     <notes><![CDATA[
