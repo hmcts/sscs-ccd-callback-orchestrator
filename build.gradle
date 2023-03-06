@@ -224,7 +224,7 @@ dependencyManagement {
     }
 
     // CVE-2022-23181 - CVE-2022-23181
-    dependencySet(group: 'org.apache.tomcat.embed', version: '10.1.7') {
+    dependencySet(group: 'org.apache.tomcat.embed', version: '9.0.68') {
       entry 'tomcat-embed-core'
       entry 'tomcat-embed-el'
       entry 'tomcat-embed-websocket'
