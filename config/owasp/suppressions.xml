@@ -19,6 +19,12 @@
     <packageUrl regex="true">^pkg:maven/org\.springframework\.cloud/spring\-cloud\-.*netflix.*@.*$</packageUrl>
     <cve>CVE-2021-22053</cve>
   </suppress>
+  <suppress until = "2023-06-01">
+    <notes><![CDATA[
+   file name: tomcat-embed-core-9.0.68.jar
+   ]]></notes>
+    <cve>CVE-2022-45143</cve>
+  </suppress>
   <suppress until="2023-06-01">
     <notes><![CDATA[
    file name: spring-security-crypto-5.7.1.jar
