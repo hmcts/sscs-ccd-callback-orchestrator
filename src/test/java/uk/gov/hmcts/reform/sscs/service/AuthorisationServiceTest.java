@@ -2,17 +2,19 @@ package uk.gov.hmcts.reform.sscs.service;
 
 import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.when;
-import static org.mockito.MockitoAnnotations.initMocks;
 
 import feign.FeignException;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 import org.mockito.ArgumentMatchers;
 import org.mockito.Mock;
+import org.mockito.junit.MockitoJUnitRunner;
 import uk.gov.hmcts.reform.authorisation.ServiceAuthorisationApi;
 import uk.gov.hmcts.reform.sscs.exception.AuthorisationException;
 import uk.gov.hmcts.reform.sscs.exception.ClientAuthorisationException;
 
+@RunWith(MockitoJUnitRunner.class)
 public class AuthorisationServiceTest {
 
     @Mock
@@ -24,7 +26,6 @@ public class AuthorisationServiceTest {
 
     @Before
     public void setUp() {
-        initMocks(this);
         service = new AuthorisationService(serviceAuthorisationApi);
     }
 
