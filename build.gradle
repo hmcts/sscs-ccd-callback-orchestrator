@@ -277,7 +277,7 @@ dependencyManagement {
 
     // CVE-2019-12086, CVE-2020-36518, CVE-2022-42004
     // remove once spring manager incorporates this changes
-    dependencySet(group: 'com.fasterxml.jackson.core', version: '2.14.1') {
+    dependencySet(group: 'com.fasterxml.jackson.core', version: '2.14.2') {
         entry 'jackson-databind'
         entry 'jackson-core'
         entry 'jackson-annotations'
