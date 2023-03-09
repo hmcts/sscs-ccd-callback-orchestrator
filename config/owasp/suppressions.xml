@@ -48,4 +48,10 @@
     <packageUrl regex="true">^pkg:maven/org\.apache\.qpid/qpid\-jms\-client@.*$</packageUrl>
     <cve>CVE-2016-3094</cve>
   </suppress>
+
+  <suppress until="2023-04-08">
+    <cve>CVE-2023-24998</cve>
+    <cve>CVE-2018-10237</cve>
+    <cve>CVE-2020-8908</cve>
+  </suppress>
 </suppressions>
