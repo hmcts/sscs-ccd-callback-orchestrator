@@ -312,8 +312,8 @@ dependencies {
   implementation group: 'com.microsoft.azure', name: 'applicationinsights-logging-logback', version: '2.6.3'
   implementation group: 'com.microsoft.azure', name: 'applicationinsights-spring-boot-starter', version: '2.6.3'
 
-  implementation group: 'org.pitest', name: 'pitest', version: '1.4.2'
-  implementation group:'info.solidsoft.gradle.pitest', name: 'gradle-pitest-plugin', version: '1.3.0'
+  implementation group: 'org.pitest', name: 'pitest', version: '1.11.4'
+  implementation group:'info.solidsoft.gradle.pitest', name: 'gradle-pitest-plugin', version: '1.9.11'
   implementation group:'org.codehaus.sonar-plugins', name:'sonar-pitest-plugin', version: '0.5'
 
   implementation group: 'org.projectlombok', name:'lombok', version: '1.18.24'
