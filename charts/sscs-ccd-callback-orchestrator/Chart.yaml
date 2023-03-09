@@ -1,7 +1,7 @@
 apiVersion: v2
 name: sscs-ccd-callback-orchestrator
 home: https://github.com/hmcts/sscs-ccd-callback-orchestrator
-version: 0.0.28
+version: 0.0.29
 description: SSCS CCD Callback Orchestrator
 maintainers:
   - name: HMCTS SSCS Team

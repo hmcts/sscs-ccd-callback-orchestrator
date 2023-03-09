@@ -8,10 +8,14 @@ management:
   endpoints:
     web:
       base-path: /
+      exposure:
+        include: "env"
 
 spring:
   application:
     name: Ccd Callback Orchestrator
+  config:
+    import: optional:configtree:/mnt/secrets/sscs/
 
 amqp:
   host: ${AMQP_HOST:localhost}
