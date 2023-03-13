@@ -11,7 +11,6 @@ variable "location_app" {
 variable "env" {
 }
 
-variable "ilbIp" {}
 
 variable "subscription" {}
 
