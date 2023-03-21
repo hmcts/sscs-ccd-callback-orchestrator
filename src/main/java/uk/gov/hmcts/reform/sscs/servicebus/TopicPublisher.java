@@ -26,6 +26,9 @@ public class TopicPublisher {
 
     private final ConnectionFactory connectionFactory;
 
+    @Value("${amqp.password}")
+    String testString;
+
     @Autowired
     public TopicPublisher(JmsTemplate jmsTemplate,
                           @Value("${amqp.topic}") final String destination,
@@ -41,6 +44,8 @@ public class TopicPublisher {
     )
     public void sendMessage(final String message, String caseId, final AtomicReference<Message> msg) {
         log.info("Sending message for caseId {}", caseId);
+        log.info("SUCHITA destination : " + destination + " Message " + message
+        + " testString " + testString);
 
         try {
             jmsTemplate.convertAndSend(destination, message, m -> {
