@@ -4,5 +4,6 @@ java:
   readinessDelay: 90
   environment:
     SUBSCRIPTION_NAME: "sscs-evidenceshare-subscription-aat"
-    TOPIC_NAME: "sscs-evidenceshare-topic-aat"
+    TOPIC_NAME: "sscs-evidenceshare-topic-preview"
     AMQP_HOST: "sscs-servicebus-aat.servicebus.windows.net"
+    AMQP_USERNAME: "preview_policy"
