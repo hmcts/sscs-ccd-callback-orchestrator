@@ -45,7 +45,8 @@ public class TopicPublisher {
     public void sendMessage(final String message, String caseId, final AtomicReference<Message> msg) {
         log.info("Sending message for caseId {}", caseId);
         log.info("SUCHITA destination : " + destination + " Message " + message
-            + " testString " + testString);
+            + " testString " + testString
+            + " jmsTemplate " + jmsTemplate.getConnectionFactory().toString());
 
         try {
             jmsTemplate.convertAndSend(destination, message, m -> {
