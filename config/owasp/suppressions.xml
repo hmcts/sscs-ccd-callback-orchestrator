@@ -121,4 +121,12 @@
     <packageUrl regex="true">^pkg:maven/com\.fasterxml\.jackson\.core/jackson\-core@.*$</packageUrl>
     <cve>CVE-2022-45688</cve>
   </suppress>
+  <suppress>
+    <notes><![CDATA[
+   file name: snakeyaml-1.33.ja
+   ]]></notes>
+    <cve>CVE-2022-1471</cve>
+  </suppress>
+
+
 </suppressions>
