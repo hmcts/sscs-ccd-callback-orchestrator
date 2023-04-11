@@ -20,5 +20,13 @@
 "10096_Timestamp Disclosure - Unix_http://sscs-ccd-callback-orchestrator-aat.service.core-compute-aat.internal/send_POST" : "ignore",
 "10054_Cookie without SameSite Attribute_http://sscs-ccd-callback-orchestrator-aat.service.core-compute-aat.internal/_GET" : "ignore",
 "10054_Cookie without SameSite Attribute_http://sscs-ccd-callback-orchestrator-aat.service.core-compute-aat.internal/v2/api-docs_GET" : "ignore",
-"10054_Cookie without SameSite Attribute_http://sscs-ccd-callback-orchestrator-aat.service.core-compute-aat.internal/send_POST" : "ignore"
+"10054_Cookie without SameSite Attribute_http://sscs-ccd-callback-orchestrator-aat.service.core-compute-aat.internal/send_POST" : "ignore",
+  "10010_Cookie No HttpOnly Flag_http://sscs-ccd-callback-orchestrator-aat.service.core-compute-aat.internal_GET" : "ignore",
+  "10010_Cookie No HttpOnly Flag_http://sscs-ccd-callback-orchestrator-aat.service.core-compute-aat.internal/robots.txt_GET" : "ignore",
+  "10054_Cookie without SameSite Attribute_http://sscs-ccd-callback-orchestrator-aat.service.core-compute-aat.internal_GET" : "ignore",
+  "10054_Cookie without SameSite Attribute_http://sscs-ccd-callback-orchestrator-aat.service.core-compute-aat.internal/robots.txt_GET" : "ignore",
+  "10021_X-Content-Type-Options Header Missing_http://sscs-ccd-callback-orchestrator-aat.service.core-compute-aat.internal_GET" : "ignore",
+  "90033_Loosely Scoped Cookie_http://sscs-ccd-callback-orchestrator-aat.service.core-compute-aat.internal_GET" : "ignore",
+  "90033_Loosely Scoped Cookie_http://sscs-ccd-callback-orchestrator-aat.service.core-compute-aat.internal/robots.txt_GET" : "ignore"
+
 }
