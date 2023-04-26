@@ -27,6 +27,8 @@
   "10054_Cookie without SameSite Attribute_http://sscs-ccd-callback-orchestrator-aat.service.core-compute-aat.internal/robots.txt_GET" : "ignore",
   "10021_X-Content-Type-Options Header Missing_http://sscs-ccd-callback-orchestrator-aat.service.core-compute-aat.internal_GET" : "ignore",
   "90033_Loosely Scoped Cookie_http://sscs-ccd-callback-orchestrator-aat.service.core-compute-aat.internal_GET" : "ignore",
-  "90033_Loosely Scoped Cookie_http://sscs-ccd-callback-orchestrator-aat.service.core-compute-aat.internal/robots.txt_GET" : "ignore"
-
+  "90033_Loosely Scoped Cookie_http://sscs-ccd-callback-orchestrator-aat.service.core-compute-aat.internal/robots.txt_GET" : "ignore",
+  "10096_Timestamp Disclosure - Unix_http://****-ccd-callback-orchestrator-aat.service.core-compute-aat.internal_GET" : "ignore",
+  "10096_Timestamp Disclosure - Unix_http://****-ccd-callback-orchestrator-aat.service.core-compute-aat.internal/robots.txt_GET" : "ignore",
+  "10096_Timestamp Disclosure - Unix_http://****-ccd-callback-orchestrator-aat.service.core-compute-aat.internal/sitemap.xml_GET" : "ignore"
 }
