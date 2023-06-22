@@ -327,6 +327,7 @@ dependencies {
   testImplementation group: 'org.junit.jupiter', name: 'junit-jupiter-api', version: '5.9.3'
   testImplementation group: 'org.junit.jupiter', name: 'junit-jupiter-params', version: '5.9.3'
   testRuntimeOnly group: 'org.junit.jupiter', name: 'junit-jupiter-engine', version: '5.9.3'
+  testRuntimeOnly "org.junit.platform:junit-platform-launcher"
 
   testImplementation group: 'com.github.hmcts', name: 'sscs-common', version: '4.26.2'
   testImplementation group: 'com.github.hmcts', name: 'fortify-client', version: '1.2.2', classifier: 'all'
