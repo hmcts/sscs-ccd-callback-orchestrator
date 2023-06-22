@@ -50,3 +50,6 @@ feign:
     config:
       core-case-data-api:
         decode404: true
+
+springdoc:
+  packagesToScan: "uk.gov.hmcts.sscs.controllers"
