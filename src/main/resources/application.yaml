@@ -52,4 +52,4 @@ feign:
         decode404: true
 
 springdoc:
-  packagesToScan: "uk.gov.hmcts.sscs.controllers"
+  packagesToScan: "uk.gov.hmcts.reform.sscs.controllers"
