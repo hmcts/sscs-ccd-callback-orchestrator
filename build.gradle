@@ -210,7 +210,7 @@ dependencyManagement {
     dependency group: 'org.apache.logging.log4j', name: 'log4j-to-slf4j', version: '2.19.0'
 
       // CVE-2022-41881, CVE-2022-41915
-      dependencySet(group: 'io.netty', version: '4.1.90.Final') {
+      dependencySet(group: 'io.netty', version: '4.1.94.Final') {
         entry 'netty-buffer'
         entry 'netty-common'
         entry 'netty-codec'
@@ -235,12 +235,12 @@ dependencyManagement {
     }
 
     //CVE-2021-22112
-    dependencySet(group: 'org.springframework.security', version: '5.7.1') {
+    dependencySet(group: 'org.springframework.security', version: '5.7.9') {
       entry 'spring-security-crypto'
     }
 
     //CVE-2021-22118
-    dependencySet(group: 'org.springframework', version: '5.2.23.RELEASE') {
+    dependencySet(group: 'org.springframework', version: '5.2.24.RELEASE') {
       entry 'spring-aop'
       entry 'spring-aspects'
       entry 'spring-beans'
@@ -277,7 +277,7 @@ dependencyManagement {
 
     // CVE-2019-12086, CVE-2020-36518, CVE-2022-42004
     // remove once spring manager incorporates this changes
-    dependencySet(group: 'com.fasterxml.jackson.core', version: '2.14.2') {
+    dependencySet(group: 'com.fasterxml.jackson.core', version: '2.14.3') {
         entry 'jackson-databind'
         entry 'jackson-core'
         entry 'jackson-annotations'
@@ -299,7 +299,7 @@ dependencies {
   implementation group: 'org.springframework', name: 'spring-jms'
 
   implementation group: 'org.springframework.retry', name: 'spring-retry', version: '1.3.1'
-  implementation group: 'org.springframework.cloud', name: 'spring-cloud-starter-netflix-hystrix', version: '2.2.9.RELEASE'
+  implementation group: 'org.springframework.cloud', name: 'spring-cloud-starter-netflix-hystrix', version: '2.2.10.RELEASE'
 
   implementation group: 'org.apache.qpid', name: 'qpid-jms-client', version: '1.5.0'
   implementation group: 'io.github.openfeign', name: 'feign-jackson', version: '10.1.0'
