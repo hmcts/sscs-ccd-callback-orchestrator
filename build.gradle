@@ -230,7 +230,7 @@ dependencyManagement {
       entry 'tomcat-embed-websocket'
     }
 
-    dependencySet(group: 'com.google.guava', version: '32.0.1-jre') {
+    dependencySet(group: 'com.google.guava', version: '32.1.1-jre') {
       entry 'guava'
     }
 
@@ -260,7 +260,7 @@ dependencyManagement {
     }
 
     //CVE-2021-29425
-    dependencySet(group: 'commons-io', version: '2.11.0') {
+    dependencySet(group: 'commons-io', version: '2.13.0') {
       entry 'commons-io'
     }
 
@@ -316,8 +316,8 @@ dependencies {
   implementation group:'info.solidsoft.gradle.pitest', name: 'gradle-pitest-plugin', version: '1.9.11'
   implementation group:'org.codehaus.sonar-plugins', name:'sonar-pitest-plugin', version: '0.5'
 
-  implementation group: 'org.projectlombok', name:'lombok', version: '1.18.26'
-  annotationProcessor group: 'org.projectlombok', name:'lombok', version: '1.18.26'
+  implementation group: 'org.projectlombok', name:'lombok', version: '1.18.28'
+  annotationProcessor group: 'org.projectlombok', name:'lombok', version: '1.18.28'
 
   testImplementation group: 'org.junit.jupiter', name: 'junit-jupiter-api', version: '5.9.1'
   testImplementation group: 'org.junit.jupiter', name: 'junit-jupiter-params', version: '5.9.1'
