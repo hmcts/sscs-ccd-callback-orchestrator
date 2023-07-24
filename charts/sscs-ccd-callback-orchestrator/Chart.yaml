@@ -1,11 +1,11 @@
 apiVersion: v2
 name: sscs-ccd-callback-orchestrator
 home: https://github.com/hmcts/sscs-ccd-callback-orchestrator
-version: 0.0.28
+version: 0.0.29
 description: SSCS CCD Callback Orchestrator
 maintainers:
   - name: HMCTS SSCS Team
 dependencies:
   - name: java
-    version: 4.0.13
+    version: 4.1.5
     repository: https://hmctspublic.azurecr.io/helm/v1/repo/
