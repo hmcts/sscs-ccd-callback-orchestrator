@@ -38,29 +38,29 @@ public class AuthorisationServiceTest {
     @Test(expected = ClientAuthorisationException.class)
     public void shouldHandleAnAuthorisationException() {
         when(serviceAuthorisationApi.getServiceName(ArgumentMatchers.any()))
-            .thenThrow(new CustomFeignException(400, "", new RuntimeException("ClientAuthorisationException")));
+            .thenThrow(new CustomFeignException(400, ""));
         service.authorise(SERVICE_NAME);
     }
 
     @Test(expected = AuthorisationException.class)
     public void shouldHandleAnUnknownFeignException() {
         when(serviceAuthorisationApi.getServiceName(ArgumentMatchers.any()))
-            .thenThrow(new CustomFeignException(501, "", new RuntimeException("AuthorisationException")));
+            .thenThrow(new CustomFeignException(501, ""));
         service.authorise(SERVICE_NAME);
     }
 
     @Test(expected = AuthorisationException.class)
     public void shouldHandleAnUnknownFeignException2() {
         when(serviceAuthorisationApi.getServiceName(ArgumentMatchers.any()))
-            .thenThrow(new CustomFeignException(399, "", new RuntimeException("AuthorisationException")));
+            .thenThrow(new CustomFeignException(399, ""));
         service.authorise(SERVICE_NAME);
     }
 
     private class CustomFeignException extends FeignException {
         public static final long serialVersionUID = 7309337492649637392L;
 
-        CustomFeignException(int status, String message, Throwable throwable) {
-            super(status, message, throwable);
+        CustomFeignException(int status, String message) {
+            super(status, message);
         }
     }
 
