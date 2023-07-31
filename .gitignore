@@ -18,3 +18,7 @@
 *.ipr
 
 .DS_store
+
+# Application insight
+lib/applicationinsights-agent-*.jar
+lib/applicationinsights.log
