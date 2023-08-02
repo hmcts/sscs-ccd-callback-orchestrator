@@ -14,4 +14,4 @@ spring:
         sscs-s2s-secret: IDAM_S2S_AUTH_TOTP_SECRET
         s2s-micro: IDAM_S2S_AUTH_MICROSERVICE
         evidence-share-topic-shared-access-key: AMQP_PASSWORD
-        app-insights-connection-string: app-insights-connection-string
+        app-insights-connection-string: app_insights_connection_string
