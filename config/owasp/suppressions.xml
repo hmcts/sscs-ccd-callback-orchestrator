@@ -165,6 +165,7 @@
   <suppress until = "2023-10-05">
     <cve>CVE-2023-35116</cve>
     <cve>CVE-2023-34462</cve>
+    <cve>CVE-2023-20873</cve>
   </suppress>
   <suppress until="2023-10-05">
     <cve>CVE-2023-20873</cve>
