@@ -31,11 +31,8 @@
   "10096_Timestamp Disclosure - Unix_http://****-ccd-callback-orchestrator-aat.service.core-compute-aat.internal_GET" : "ignore",
   "10096_Timestamp Disclosure - Unix_http://****-ccd-callback-orchestrator-aat.service.core-compute-aat.internal/robots.txt_GET" : "ignore",
   "10096_Timestamp Disclosure - Unix_http://****-ccd-callback-orchestrator-aat.service.core-compute-aat.internal/sitemap.xml_GET" : "ignore",
-  "10049_Non-Storable Content_http://sscs-bulk-scan-aat.service.core-compute-aat.internal/transform-exception-record_POST" : "ignore",
-  "10049_Non-Storable Content_http://sscs-bulk-scan-aat.service.core-compute-aat.internal/transform-scanned-data_POST" : "ignore",
-  "10049_Non-Storable Content_http://sscs-bulk-scan-aat.service.core-compute-aat.internal/validate-record_POST"  : "ignore",
-  "10112_Session Management Response Identified_http://sscs-bulk-scan-aat.service.core-compute-aat.internal/_GET" : "ignore",
-  "10049_Storable and Cacheable Content_http://sscs-bulk-scan-aat.service.core-compute-aat.internal/_GET" : "ignore",
-  "10049_Storable and Cacheable Content_http://sscs-bulk-scan-aat.service.core-compute-aat.internal/v2/api-docs_GET" : "ignore",
-  "10049_Storable and Cacheable Content_http://sscs-bulk-scan-aat.service.core-compute-aat.internal/forms/form-type/validate-ocr_POST" : "ignore"
+  "10049_Non-Storable Content_http://****-ccd-callback-orchestrator-aat.service.core-compute-aat.internal/send_POST" : "ignore",
+  "10112_Session Management Response Identified_http://****-ccd-callback-orchestrator-aat.service.core-compute-aat.internal/v2/api-docs_GET" : "ignore",
+  "10049_Storable and Cacheable Content_http://****-ccd-callback-orchestrator-aat.service.core-compute-aat.internal/_GET" : "ignore",
+  "10049_Storable and Cacheable Content_http://****-ccd-callback-orchestrator-aat.service.core-compute-aat.internal/v2/api-docs_GET" : "ignore"
 }
