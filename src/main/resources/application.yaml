@@ -12,6 +12,8 @@ management:
 spring:
   application:
     name: Ccd Callback Orchestrator
+  config:
+    import: "optional:configtree:/mnt/secrets/sscs/"
 
 amqp:
   host: ${AMQP_HOST:localhost}
@@ -26,7 +28,7 @@ idam:
   url: ${IDAM_URL:http://localhost:5000}
   s2s-auth:
     totp_secret: ${IDAM_S2S_AUTH_TOTP_SECRET:AAAAAAAAAAAAAAAC}
-    microservice: ${IDAM_S2S_AUTH_MICROSERVICE:sscs}
+    microservice: ${IDAM_S2S_AUTH_MICROSERVICE:sscstest}
     url: ${IDAM_S2S_AUTH:http://localhost:4502}
   oauth2:
     user:
@@ -50,3 +52,6 @@ feign:
     config:
       core-case-data-api:
         decode404: true
+
+springdoc:
+  packagesToScan: "uk.gov.hmcts.sscs.controllers"
