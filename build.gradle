@@ -334,7 +334,7 @@ dependencies {
   testRuntimeOnly group: 'org.junit.jupiter', name: 'junit-jupiter-engine', version: '5.9.1'
   implementation group: 'org.apiguardian', name: 'apiguardian-api', version: '1.1.2'
 
-  testImplementation group: 'com.github.hmcts', name: 'sscs-common', version: '5.3.0'
+  testImplementation group: 'com.github.hmcts', name: 'sscs-common', version: '5.3.4'
   testImplementation group: 'com.github.hmcts', name: 'fortify-client', version: '1.2.2', classifier: 'all'
 
   testImplementation(group: 'org.springframework.boot', name: 'spring-boot-starter-test', version: '2.6.2') {
