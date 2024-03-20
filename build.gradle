@@ -209,8 +209,8 @@ dependencyManagement {
   }
   dependencies {
     dependency group: 'commons-beanutils', name: 'commons-beanutils', version: '1.9.4'
-    dependency group: 'org.apache.logging.log4j', name: 'log4j-api', version: '2.19.0'
-    dependency group: 'org.apache.logging.log4j', name: 'log4j-to-slf4j', version: '2.19.0'
+    dependency group: 'org.apache.logging.log4j', name: 'log4j-api', version: '2.23.1'
+    dependency group: 'org.apache.logging.log4j', name: 'log4j-to-slf4j', version: '2.23.1'
 
       // CVE-2022-41881, CVE-2022-41915
       dependencySet(group: 'io.netty', version: '4.1.94.Final') {
@@ -275,7 +275,7 @@ dependencyManagement {
     }
 
     //CVE-2021-42550
-    dependencySet(group: 'ch.qos.logback', version: '1.2.11') {
+    dependencySet(group: 'ch.qos.logback', version: '1.5.3') {
         entry 'logback-core'
         entry 'logback-classic'
     }
@@ -318,7 +318,7 @@ dependencies {
   implementation group: 'io.github.openfeign', name: 'feign-jackson', version: '10.1.0'
   implementation group: 'io.springfox', name: 'springfox-swagger2', version: '2.9.2'
 
-  implementation group: 'com.github.hmcts', name: 'java-logging', version: '6.0.1'
+  implementation group: 'com.github.hmcts', name: 'java-logging', version: '6.1.4'
   implementation group: 'net.logstash.logback', name: 'logstash-logback-encoder', version: '7.4'
   implementation group: 'com.github.hmcts', name: 'service-auth-provider-java-client', version: '4.0.3'
 
