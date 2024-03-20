@@ -341,7 +341,7 @@ dependencies {
     exclude group: "com.vaadin.external.google", module:"android-json"
   }
 
-  testImplementation group: 'org.mockito', name: 'mockito-core', version: '4.0.0'
+  testImplementation group: 'org.mockito', name: 'mockito-core', version: '5.11.0'
   testImplementation group: 'pl.pragmatists', name: 'JUnitParams', version: '1.1.1'
   testImplementation group: 'org.apache.qpid', name: 'qpid-broker-core', version: '8.0.6'
   testImplementation group: 'org.apache.qpid', name: 'qpid-broker-plugins-amqp-1-0-protocol', version: '8.0.6'
